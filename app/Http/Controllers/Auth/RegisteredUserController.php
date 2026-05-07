@@ -7,7 +7,6 @@ use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
@@ -39,7 +38,8 @@ class RegisteredUserController extends Controller
         ]);
 
         $role = (string) $request->input('role', 'owner');
-        $status = $role === 'mechanic' ? 'inactive' : 'active';
+        // All self-registered accounts require admin approval.
+        $status = 'inactive';
 
         $user = User::create([
             'name' => $request->name,
@@ -52,13 +52,9 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        if ($status === 'active') {
-            Auth::login($user);
-            return redirect(route('dashboard', absolute: false));
-        }
-
         return redirect()
-            ->route('login')
+            ->route('register')
+            ->with('approval_pending', true)
             ->with('status', 'Registration submitted. Your account is awaiting admin approval.');
     }
 }

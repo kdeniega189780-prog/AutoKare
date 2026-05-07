@@ -27,13 +27,13 @@ class RegistrationTest extends TestCase
             'password_confirmation' => 'password',
         ]);
 
-        $this->assertAuthenticated();
-        $response->assertRedirect(route('dashboard', absolute: false));
+        $this->assertGuest();
+        $response->assertRedirect(route('register'));
 
         $this->assertDatabaseHas('users', [
             'email' => 'test@example.com',
             'role' => 'owner',
-            'status' => 'active',
+            'status' => 'inactive',
         ]);
     }
 
@@ -48,7 +48,7 @@ class RegistrationTest extends TestCase
         ]);
 
         $this->assertGuest();
-        $response->assertRedirect(route('login'));
+        $response->assertRedirect(route('register'));
 
         $this->assertDatabaseHas('users', [
             'email' => 'pending.mechanic@example.com',

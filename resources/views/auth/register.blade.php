@@ -1,4 +1,10 @@
 <x-guest-layout>
+    @if (session('status'))
+        <div class="alert alert-info">
+            {{ session('status') }}
+        </div>
+    @endif
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -79,4 +85,33 @@
     <p class="mb-0 mt-3">
         <a href="{{ route('login') }}">{{ __('I already have a membership') }}</a>
     </p>
+
+    @if (session('approval_pending'))
+        <div class="modal fade" id="approvalPendingModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">{{ __('Awaiting Admin Approval') }}</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p class="mb-0">
+                            {{ __('Registration submitted. Your account is awaiting admin approval.') }}
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Go to Login') }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            (function () {
+                if (window.jQuery && window.jQuery.fn && window.jQuery.fn.modal) {
+                    window.jQuery('#approvalPendingModal').modal({ backdrop: 'static', keyboard: false });
+                    window.jQuery('#approvalPendingModal').modal('show');
+                }
+            })();
+        </script>
+    @endif
 </x-guest-layout>

@@ -1,0 +1,1192 @@
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-size: smaller;
+    font-style: italic;
+}
+
+.truncate-1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.truncate-3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.lh-1 {
+    line-height: 1em !important;
+}
+
+.modal-dialog.large {
+    width: 80% !important;
+    max-width: unset;
+}
+
+.modal-dialog.mid-large {
+    width: 50% !important;
+    max-width: unset;
+}
+
+@media (max-width:900px) {
+    .modal-dialog.large {
+        width: 100% !important;
+        max-width: unset;
+    }
+    .modal-dialog.mid-large {
+        width: 100% !important;
+        max-width: unset;
+    }
+    .modal-dialog {
+        margin: unset !important;
+    }
+}
+
+#viewer_modal .btn-close {
+    position: absolute;
+    z-index: 999999;
+    /*right: -4.5em;*/
+    background: unset;
+    color: white;
+    border: unset;
+    font-size: 27px;
+    top: 0;
+}
+
+#viewer_modal .modal-dialog {
+    width: 80%;
+    max-width: unset;
+    height: calc(90%);
+    max-height: unset;
+}
+
+#viewer_modal .modal-content {
+    background: black;
+    border: unset;
+    height: calc(100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#viewer_modal img,
+#viewer_modal video {
+    max-height: calc(100%);
+    max-width: calc(100%);
+}
+
+table.dataTable th,
+table.dataTable td {
+    padding: 5px !important;
+}
+
+.card.d-flex {
+    flex-direction: row !important;
+}
+
+.card.d-flex>img {
+    width: 20% !important;
+}
+
+.card.d-flex>.card-body {
+    width: 80% !important;
+}
+
+span.btn {
+    cursor: unset;
+}
+
+span.btn:hover {
+    background: inherit;
+}
+
+/* Pixel-close Admin Appointments/Maintenance UI */
+.vms-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    color: #374151;
+}
+.vms-table thead th {
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+    border-top: 0;
+    font-weight: 600;
+    font-size: 12px;
+    color: #6b7280;
+    text-transform: none;
+    text-align: left;
+    padding: 12px 18px;
+    white-space: nowrap;
+}
+.vms-table tbody td {
+    border-top: 1px solid #f3f4f6;
+    vertical-align: middle;
+    padding: 14px 18px;
+    color: #374151;
+}
+.vms-table tbody tr:first-child td { border-top: 0; }
+.vms-table tbody tr:hover { background: #fafbfc; }
+.vms-table .text-right { text-align: right; }
+
+.vms-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    padding: 0 10px;
+    border-radius: 9999px;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 600;
+    background: #fff;
+}
+
+.vms-pill.vms-pill-blue {
+    border: 1px solid #3b82f6;
+    color: #2563eb;
+}
+
+.vms-pill.vms-pill-yellow {
+    border: 1px solid #f59e0b;
+    color: #b45309;
+}
+
+.vms-pill.vms-pill-green {
+    border: 1px solid #22c55e;
+    color: #15803d;
+}
+
+.vms-pill.vms-pill-gray {
+    border: 1px solid #cbd5e1;
+    color: #475569;
+}
+
+.vms-modal-section {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 16px;
+    background: #fff;
+}
+
+.vms-modal-section.vms-modal-section-blue {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+}
+
+.vms-modal-footer-wide .btn {
+    min-width: 48%;
+}
+
+.vms-inline-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vms-inline-filter .form-control,
+.vms-inline-filter .custom-select {
+    height: 36px;
+}
+
+/* Sidebar chip-style nav (match screenshots) */
+.vms-side-nav .nav-link {
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    margin: 0 12px 8px 12px;
+    padding: 12px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827 !important;
+}
+
+.vms-side-nav .nav-link .nav-icon {
+    color: #374151 !important;
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.vms-side-nav .nav-link.active {
+    background: #e5e7eb !important;
+    border-color: #cbd5e1 !important;
+    color: #111827 !important;
+}
+
+.vms-side-nav .nav-link:hover {
+    background: #f3f4f6;
+    color: #111827 !important;
+}
+
+.vms-side-nav .nav-header {
+    margin: 10px 8px 6px 8px;
+    padding: 0;
+    color: #6b7280;
+}
+
+#tourCarousel {
+    height: 50vh !important;
+}
+
+#tourCarousel img {
+    object-fit: fill;
+}
+
+div.stars {
+    width: auto;
+    display: inline-block
+}
+
+.mt-200 {
+    margin-top: 200px
+}
+
+input.star {
+    display: none
+}
+
+label.star {
+    float: right;
+    /* padding: 10px; */
+    font-size: 30px;
+    color: #333333;
+    transition: all .2s
+}
+
+input.star:checked~label.star:before {
+    content: '\2605';
+    color: #ffc800;
+    transition: all .25s
+}
+
+input.star-5:checked~label.star:before {
+    color: #ffc800;
+    /* text-shadow: 0 0 20px #952 */
+}
+
+input.star-1:checked~label.star:before {
+    color: #F62
+}
+
+label.star:hover {
+    transform: rotate(-15deg) scale(1.3)
+}
+
+label.star:before {
+    content: '\2605';
+    font-family: FontAwesome
+}
+
+/* ===========================================================
+ * VMS BS4 / AdminLTE 3 palette extensions
+ * =========================================================== */
+
+/* Purple palette (used for customer role + Hybrid Service Model banner) */
+.bg-purple { background-color: #7c3aed !important; color: #fff !important; }
+.bg-purple-soft { background-color: #ede9fe !important; }
+.text-purple { color: #7c3aed !important; }
+.badge-purple { background-color: #7c3aed; color: #fff; }
+.btn-purple { background-color: #7c3aed; color: #fff; border-color: #7c3aed; }
+.btn-purple:hover { background-color: #6d28d9; color: #fff; border-color: #6d28d9; }
+.alert-purple { background-color: #ede9fe; border: 1px solid #c4b5fd; color: #5b21b6; }
+.small-box.bg-purple { color: #fff; }
+
+/* Orange (used for Mark as Started + warning highlights) */
+.bg-orange { background-color: #f97316 !important; color: #fff !important; }
+.btn-orange { background-color: #f97316; color: #fff; border-color: #f97316; }
+.btn-orange:hover { background-color: #ea580c; color: #fff; border-color: #ea580c; }
+.text-orange { color: #f97316 !important; }
+
+/* Topbar branding */
+.vms-brand-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: #111827 !important;
+    color: #fff !important;
+}
+.vms-brand-icon i { color: #fff !important; }
+.vms-brand-icon-lg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #111827;
+    color: #fff;
+    font-size: 32px;
+    margin: 0 auto;
+}
+.vms-brand-text {
+    font-weight: 700;
+    color: #111827;
+    font-size: 16px;
+}
+.vms-role-badge {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+}
+.vms-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    color: #6b7280;
+}
+.lh-1 { line-height: 1.1; }
+
+/* Sidebar brand block (top of sidebar, replaces topbar brand) */
+.vms-sidebar-brand {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 0 12px;
+    border-bottom: 1px solid #e5e7eb;
+    background: #ffffff;
+    height: 56px;
+    overflow: hidden;
+}
+.vms-sidebar-brand .vms-brand-text {
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
+.vms-sidebar-brand .vms-role-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+    flex-shrink: 0;
+}
+.vms-sidebar-brand .vms-brand-icon { flex-shrink: 0; }
+
+/* Sidebar bottom info card (bordered) */
+.vms-sidebar-info-card {
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    border-radius: 8px;
+    margin: 12px 12px 0 12px;
+    padding: 12px 14px;
+    font-size: 12px;
+    color: #475569;
+}
+.vms-sidebar-info-card-blue {
+    border-color: #bfdbfe;
+    background: #eff6ff;
+    color: #1e3a8a;
+}
+.vms-sidebar-info-card .vms-sidebar-info-title {
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+.vms-sidebar-info-card .vms-sidebar-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.vms-sidebar-info-card .vms-sidebar-info-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 0;
+    gap: 8px;
+    color: #334155;
+}
+.vms-sidebar-info-card .vms-sidebar-info-list li i {
+    margin-right: 6px;
+    font-size: 10px;
+}
+.vms-sidebar-info-card .vms-sidebar-info-list li strong {
+    color: #111827;
+}
+
+/* Login page demo role picker */
+.vms-demo-roles {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.vms-demo-role-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 8px 12px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+.vms-demo-role-btn:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+}
+.vms-demo-role-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f3f4f6;
+    font-size: 14px;
+}
+.vms-demo-role-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+.vms-demo-role-name {
+    font-weight: 700;
+    color: #111827;
+    font-size: 13px;
+}
+.vms-demo-role-email {
+    font-size: 11px;
+    color: #6b7280;
+}
+
+/* Page header */
+.vms-page-title {
+    margin: 0 0 4px 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+}
+.vms-page-subtitle {
+    margin: 0 0 16px 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+.vms-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+/* Stat cards */
+.vms-stat-card {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    padding: 16px;
+    height: 100%;
+}
+.vms-stat-card .vms-stat-label {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 4px;
+}
+.vms-stat-card .vms-stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #111827;
+}
+.vms-stat-card .vms-stat-icon {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+}
+
+/* Banner pattern (info, success, warning, danger, purple) */
+.vms-banner {
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+.vms-banner h5 {
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 15px;
+}
+.vms-banner p, .vms-banner ul {
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.vms-banner-success { background: #ecfdf5; border-color: #a7f3d0; color: #065f46; }
+.vms-banner-success h5 { color: #064e3b; }
+.vms-banner-info { background: #eff6ff; border-color: #bfdbfe; color: #1e3a8a; }
+.vms-banner-info h5 { color: #1e40af; }
+.vms-banner-warning { background: #fef3c7; border-color: #fde68a; color: #78350f; }
+.vms-banner-warning h5 { color: #78350f; }
+.vms-banner-purple { background: #ede9fe; border-color: #c4b5fd; color: #5b21b6; }
+.vms-banner-purple h5 { color: #5b21b6; }
+.vms-banner-danger { background: #fee2e2; border-color: #fecaca; color: #7f1d1d; }
+.vms-banner-danger h5 { color: #7f1d1d; }
+
+/* Status pills (extra colors not in BS4 default) */
+.vms-pill.vms-pill-purple {
+    border: 1px solid #7c3aed;
+    color: #6d28d9;
+}
+.vms-pill.vms-pill-red {
+    border: 1px solid #ef4444;
+    color: #b91c1c;
+}
+.vms-pill.vms-pill-orange {
+    border: 1px solid #f97316;
+    color: #c2410c;
+}
+
+/* Login-page narrow card (override AdminLTE default 360px to fit demo picker) */
+.login-page .login-box,
+.login-page .register-box {
+    width: 420px;
+}
+
+/* Data tables - lighter feel matching screenshots */
+.table.vms-light th {
+    background: #f9fafb;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #6b7280;
+    border-bottom: 1px solid #e5e7eb;
+    border-top: 0;
+}
+.table.vms-light td {
+    vertical-align: middle;
+    border-top: 1px solid #f3f4f6;
+}
+
+/* Service report (mechanic_completed modal) */
+.vms-report-section {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+}
+.vms-report-section h6 {
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.vms-report-total {
+    background: #111827;
+    color: #fff;
+    padding: 14px 18px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* Make AdminLTE main-sidebar plain white (no AdminLTE accent tint) */
+.sidebar-light .main-sidebar,
+.main-sidebar.sidebar-light,
+.sidebar-light-primary .main-sidebar,
+.main-sidebar.sidebar-light-primary {
+    background-color: #ffffff !important;
+}
+/* Lock sidebar permanently visible regardless of AdminLTE JS state (no slide/transform) */
+body.layout-fixed .main-sidebar,
+body.vms-static .main-sidebar {
+    transform: none !important;
+    margin-left: 0 !important;
+    transition: none !important;
+}
+body.sidebar-collapse .main-sidebar,
+body.sidebar-closed .main-sidebar,
+body.sidebar-open .main-sidebar {
+    transform: none !important;
+    margin-left: 0 !important;
+}
+body.vms-static .content-wrapper,
+body.vms-static .main-header,
+body.vms-static .main-footer {
+    margin-left: 320px !important;
+}
+body.vms-static .main-sidebar {
+    width: 320px;
+    background: #ffffff !important;
+}
+
+/* Force active nav-pill to gray, never AdminLTE blue */
+.main-sidebar .nav-sidebar > .nav-item > .nav-link.active,
+.vms-side-nav .nav-link.active {
+    background: #e5e7eb !important;
+    color: #111827 !important;
+    box-shadow: none !important;
+}
+
+/* Ensure content-wrapper has the same off-white background as the screenshots */
+.content-wrapper { background-color: #f3f4f6; }
+
+/* Compact info-box used in user management role tiles */
+.vms-role-tile {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 18px 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.vms-role-tile-icon {
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+}
+.vms-role-tile .vms-role-tile-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+}
+.vms-role-tile .vms-role-tile-label {
+    font-size: 13px;
+    color: #6b7280;
+}
+.vms-role-tile .vms-role-tile-value {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Mechanic task / progress / completed cards */
+.vms-task-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+}
+.vms-task-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+}
+.vms-task-card-meta {
+    color: #6b7280;
+    font-size: 13px;
+}
+.vms-task-card .vms-task-actions {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+/* Vehicle card (customer + admin) */
+.vms-vehicle-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+}
+.vms-vehicle-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+}
+.vms-vehicle-card-meta {
+    color: #6b7280;
+    font-size: 13px;
+}
+.vms-service-block {
+    background: #f9fafb;
+    border-radius: 6px;
+    padding: 10px 14px;
+}
+.vms-service-block-label {
+    font-size: 11px;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+.vms-service-block-value {
+    color: #111827;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Footer info cards (User Management) */
+.vms-info-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    height: 100%;
+}
+.vms-info-card-title {
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #111827;
+}
+.vms-info-card ul {
+    padding-left: 18px;
+    margin: 0;
+    font-size: 13px;
+    color: #4b5563;
+}
+.vms-info-card ul li { margin-bottom: 4px; }
+
+/* Override navbar height to match AdminLTE comfort */
+.main-header.navbar { min-height: 56px; }
+
+/* Search-suggest dropdown */
+.vms-suggest-wrap { position: relative; }
+.vms-suggest-dropdown {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 4px);
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    z-index: 1080;
+    max-height: 320px;
+    overflow-y: auto;
+}
+.vms-suggest-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+    background: #ffffff;
+    border: 0;
+    padding: 8px 12px;
+    gap: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #f3f4f6;
+}
+.vms-suggest-item:last-child { border-bottom: 0; }
+.vms-suggest-item:hover,
+.vms-suggest-item.is-active { background: #f3f4f6; }
+.vms-suggest-text { display: flex; flex-direction: column; min-width: 0; }
+.vms-suggest-primary { font-weight: 600; color: #111827; font-size: 13px; }
+.vms-suggest-secondary { color: #6b7280; font-size: 12px; }
+.vms-suggest-meta { color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; flex-shrink: 0; }
+.vms-suggest-empty { padding: 10px 12px; color: #6b7280; font-size: 12px; text-align: center; }
+
+/* =====================================================================
+   Mechanic UI utilities (used across pages + modals)
+   ===================================================================== */
+
+/* Generic surface card */
+.vms-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+}
+.vms-card-pad { padding: 18px 20px; }
+.vms-card.has-table { overflow: hidden; }
+
+/* Buttons */
+.vms-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background-color .12s ease, border-color .12s ease, color .12s ease;
+    line-height: 1.2;
+}
+.vms-btn-sm { padding: 6px 10px; font-size: 12px; }
+.vms-btn-block { width: 100%; }
+.vms-btn:focus { outline: none; box-shadow: 0 0 0 2px rgba(59,130,246,0.25); }
+
+.vms-btn-primary,
+.vms-btn-dark {
+    background: #111827;
+    border-color: #111827;
+    color: #ffffff;
+}
+.vms-btn-primary:hover,
+.vms-btn-dark:hover { background: #1f2937; border-color: #1f2937; color: #ffffff; }
+
+.vms-btn-secondary {
+    background: #ffffff;
+    border-color: #d1d5db;
+    color: #111827;
+}
+.vms-btn-secondary:hover { background: #f9fafb; color: #111827; }
+
+.vms-btn-blue   { background: #2563eb; border-color: #2563eb; color: #fff; }
+.vms-btn-blue:hover   { background: #1d4ed8; border-color: #1d4ed8; color: #fff; }
+.vms-btn-green  { background: #16a34a; border-color: #16a34a; color: #fff; }
+.vms-btn-green:hover  { background: #15803d; border-color: #15803d; color: #fff; }
+.vms-btn-orange { background: #f59e0b; border-color: #f59e0b; color: #fff; }
+.vms-btn-orange:hover { background: #d97706; border-color: #d97706; color: #fff; }
+.vms-btn-danger { background: #dc2626; border-color: #dc2626; color: #fff; }
+.vms-btn-danger:hover { background: #b91c1c; border-color: #b91c1c; color: #fff; }
+
+/* Solid pills (filled background) */
+.vms-pill-solid-blue {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    background: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+}
+.vms-pill-solid-green {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+.vms-pill-solid-yellow {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+}
+
+/* Outlined pills used for IN PROGRESS / High Priority etc. */
+.vms-pill-blue-outline,
+.vms-pill-red-outline,
+.vms-pill-yellow-outline,
+.vms-pill-green-outline {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    background: #ffffff;
+    border: 1px solid currentColor;
+    line-height: 1.2;
+}
+.vms-pill-blue-outline   { color: #2563eb; }
+.vms-pill-red-outline    { color: #dc2626; }
+.vms-pill-yellow-outline { color: #b45309; border-color: #f59e0b; }
+.vms-pill-green-outline  { color: #15803d; }
+
+/* Form inputs (Tailwind-flavour names, BS4-friendly styling) */
+.vms-input,
+.vms-select,
+.vms-textarea {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #111827;
+    font-size: 13px;
+    line-height: 1.4;
+}
+.vms-textarea { min-height: 88px; resize: vertical; }
+.vms-input:focus,
+.vms-select:focus,
+.vms-textarea:focus {
+    outline: none;
+    border-color: #6b7280;
+    box-shadow: 0 0 0 2px rgba(107,114,128,0.15);
+}
+.vms-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 4px;
+}
+.vms-required { color: #dc2626; margin-left: 2px; }
+
+/* Banner variants used in modals (override base centred styling for compact look) */
+.vms-banner-info-blue {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #1e3a8a;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+.vms-banner-info-blue strong { color: #1e3a8a; }
+.vms-banner-success-green {
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    color: #065f46;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+.vms-banner-success-green strong { color: #065f46; }
+
+/* Big "Task Completed" banner used in service report */
+.vms-completion-banner {
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 8px;
+    padding: 14px 18px;
+    color: #065f46;
+}
+.vms-completion-banner-title {
+    font-weight: 700;
+    color: #065f46;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.vms-completion-banner-sub {
+    color: #047857;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+/* Yellow recommendations card */
+.vms-recommendation-card {
+    background: #fefce8;
+    border: 1px solid #fde68a;
+    border-left: 3px solid #f59e0b;
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #78350f;
+    font-size: 13px;
+}
+.vms-recommendation-card ul { margin: 0; padding-left: 18px; }
+.vms-recommendation-card li { margin-bottom: 4px; }
+
+/* Modal info-grid (2x2 / 3x2 cards under modal title) */
+.vms-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 24px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+}
+.vms-info-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 576px) {
+    .vms-info-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.vms-info-cell-label {
+    font-size: 11px;
+    color: #6b7280;
+    margin-bottom: 2px;
+}
+.vms-info-cell-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Stacked info card with right-aligned value rows (Vehicle Information etc.) */
+.vms-info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 13px;
+}
+.vms-info-row + .vms-info-row { border-top: 1px solid #f3f4f6; }
+.vms-info-row .lbl { color: #6b7280; }
+.vms-info-row .val { color: #111827; font-weight: 600; }
+
+/* Section title + sublabel (modal sections) */
+.vms-section-title {
+    font-weight: 700;
+    color: #111827;
+    font-size: 14px;
+    margin: 14px 0 8px;
+}
+.vms-section-sub {
+    color: #6b7280;
+    font-size: 12px;
+    margin: -4px 0 10px;
+}
+
+/* Bullet list with subtle background */
+.vms-bullet-card {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 12px 16px 12px 32px;
+    color: #374151;
+    font-size: 13px;
+}
+.vms-bullet-card ul { margin: 0; padding-left: 0; list-style: disc; }
+.vms-bullet-card li { margin-bottom: 4px; }
+
+/* Parts/labor line-item rows */
+.vms-row-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+.vms-row-line:last-child { margin-bottom: 0; }
+.vms-row-line .row-name { color: #111827; font-weight: 600; }
+.vms-row-line .row-sub  { color: #6b7280; font-size: 11px; margin-top: 2px; }
+.vms-row-line .row-amt  { color: #111827; font-weight: 700; white-space: nowrap; padding-left: 12px; }
+
+.vms-row-total {
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    color: #111827;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+/* Big dark Total Cost banner */
+.vms-total-bar {
+    background: #111827;
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 14px 0;
+}
+.vms-total-bar-label { font-weight: 700; font-size: 15px; }
+.vms-total-bar-value { font-weight: 700; font-size: 22px; }
+
+/* Notes call-out used in team-overview cards */
+.vms-notes-block {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: #1e3a8a;
+    font-size: 12px;
+    margin-top: 8px;
+}
+.vms-notes-block .lbl { color: #1d4ed8; font-weight: 600; margin-right: 4px; }
+
+/* Stat tile with subline (team reports) */
+.vms-summary-tile {
+    border-radius: 10px;
+    padding: 16px 18px;
+    border: 1px solid;
+    height: 100%;
+}
+.vms-summary-tile .vms-st-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.vms-summary-tile .vms-st-value { font-size: 28px; font-weight: 700; line-height: 1.1; }
+.vms-summary-tile .vms-st-sub { font-size: 11px; margin-top: 4px; opacity: 0.85; }
+.vms-summary-tile.vms-st-blue   { background: #eff6ff; border-color: #bfdbfe; color: #1e3a8a; }
+.vms-summary-tile.vms-st-green  { background: #ecfdf5; border-color: #a7f3d0; color: #065f46; }
+.vms-summary-tile.vms-st-orange { background: #fff7ed; border-color: #fed7aa; color: #9a3412; }
+.vms-summary-tile.vms-st-purple { background: #f5f3ff; border-color: #ddd6fe; color: #5b21b6; }
+.vms-summary-tile.vms-st-gray   { background: #f9fafb; border-color: #e5e7eb; color: #1f2937; }
+.vms-summary-tile.vms-st-red    { background: #fef2f2; border-color: #fecaca; color: #7f1d1d; }
+
+/* Generic page subtitle (small gray under H1) */
+.vms-subtitle {
+    color: #6b7280;
+    font-size: 13px;
+    margin-top: -8px;
+    margin-bottom: 16px;
+}
+
+/* Action row used inside cards */
+.vms-actions { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+
+/* Bullet-only list for service report Work Performed */
+.vms-perf-list {
+    margin: 0;
+    padding-left: 18px;
+    color: #374151;
+    font-size: 13px;
+}
+.vms-perf-list li { margin-bottom: 4px; }
+
+/* Larger heading inside modals */
+.vms-modal-title {
+    font-weight: 700;
+    font-size: 18px;
+    color: #111827;
+    margin: 0;
+}
+.vms-modal-close {
+    background: transparent;
+    border: 0;
+    color: #9ca3af;
+    font-size: 18px;
+    line-height: 1;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+.vms-modal-close:hover { color: #4b5563; }
+
+/* Slim h3 inside modal for subsections */
+.vms-h3 { font-weight: 700; color: #111827; font-size: 13px; margin: 14px 0 6px; }

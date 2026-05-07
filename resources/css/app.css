@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        background: #f3f4f6;
+    }
+
+    .vms-app-shell {
+        background: #f3f4f6;
+        min-height: 100vh;
+    }
+
+    .vms-auth-bg {
+        background: #f3f4f6;
+    }
+}
+
+@layer components {
+    /* ---------------- Layout ---------------- */
+    .vms-card {
+        @apply rounded-lg border border-slate-200 bg-white;
+    }
+
+    /* ---------------- Sidebar nav ---------------- */
+    .vms-nav-item {
+        @apply flex items-center gap-3 rounded-md border border-transparent px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition;
+    }
+
+    .vms-nav-item-active {
+        @apply flex items-center gap-3 rounded-md border border-slate-200 bg-slate-100 px-3 py-2 text-sm font-semibold text-slate-900;
+    }
+
+    .vms-nav-icon {
+        @apply inline-flex h-5 w-5 items-center justify-center text-slate-500;
+    }
+
+    .vms-nav-item-active .vms-nav-icon {
+        @apply text-slate-900;
+    }
+
+    /* ---------------- Pills ---------------- */
+    .vms-pill {
+        @apply inline-flex items-center rounded border px-2 py-0.5 text-xs font-medium;
+    }
+
+    .vms-pill-blue {
+        @apply vms-pill border-blue-300 bg-blue-50 text-blue-700;
+    }
+
+    .vms-pill-green {
+        @apply vms-pill border-emerald-300 bg-emerald-50 text-emerald-700;
+    }
+
+    .vms-pill-yellow {
+        @apply vms-pill border-yellow-400 bg-yellow-50 text-yellow-800;
+    }
+
+    .vms-pill-orange {
+        @apply vms-pill border-orange-300 bg-orange-50 text-orange-700;
+    }
+
+    .vms-pill-red {
+        @apply vms-pill border-red-300 bg-red-50 text-red-700;
+    }
+
+    .vms-pill-purple {
+        @apply vms-pill border-purple-300 bg-purple-50 text-purple-700;
+    }
+
+    .vms-pill-gray {
+        @apply vms-pill border-slate-300 bg-slate-50 text-slate-700;
+    }
+
+    /* Solid filled pills for "Completed" style */
+    .vms-pill-solid-green {
+        @apply inline-flex items-center rounded border border-emerald-200 bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-800;
+    }
+
+    /* Role badges in topbar */
+    .vms-role-admin {
+        @apply inline-flex items-center rounded border border-red-200 bg-red-50 px-2 py-0.5 text-[11px] font-bold tracking-wide text-red-700;
+    }
+
+    .vms-role-mechanic {
+        @apply inline-flex items-center rounded border border-blue-200 bg-blue-50 px-2 py-0.5 text-[11px] font-bold tracking-wide text-blue-700;
+    }
+
+    .vms-role-customer {
+        @apply inline-flex items-center rounded border border-purple-200 bg-purple-50 px-2 py-0.5 text-[11px] font-bold tracking-wide text-purple-700;
+    }
+
+    /* ---------------- Buttons ---------------- */
+    .vms-btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-md border px-3.5 py-2 text-sm font-semibold transition;
+    }
+
+    .vms-btn-primary {
+        @apply vms-btn border-slate-900 bg-slate-900 text-white hover:bg-slate-800;
+    }
+
+    .vms-btn-secondary {
+        @apply vms-btn border-slate-300 bg-white text-slate-900 hover:bg-slate-50;
+    }
+
+    .vms-btn-blue {
+        @apply vms-btn border-blue-600 bg-blue-600 text-white hover:bg-blue-700;
+    }
+
+    .vms-btn-green {
+        @apply vms-btn border-emerald-600 bg-emerald-600 text-white hover:bg-emerald-700;
+    }
+
+    .vms-btn-orange {
+        @apply vms-btn border-orange-500 bg-orange-500 text-white hover:bg-orange-600;
+    }
+
+    .vms-btn-danger {
+        @apply vms-btn border-red-600 bg-red-600 text-white hover:bg-red-700;
+    }
+
+    .vms-btn-danger-ghost {
+        @apply vms-btn border-red-300 bg-white text-red-700 hover:bg-red-50;
+    }
+
+    .vms-btn-sm {
+        @apply px-3 py-1.5 text-xs;
+    }
+
+    /* ---------------- Inputs ---------------- */
+    .vms-input {
+        @apply block w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder-slate-400 shadow-sm focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500;
+    }
+
+    .vms-select {
+        @apply vms-input pr-8;
+    }
+
+    .vms-textarea {
+        @apply vms-input min-h-[88px];
+    }
+
+    .vms-label {
+        @apply mb-1 block text-sm font-medium text-slate-700;
+    }
+
+    /* ---------------- Tables ---------------- */
+    .vms-table {
+        @apply w-full text-sm;
+    }
+
+    .vms-table thead th {
+        @apply bg-slate-50 px-4 py-3 text-left font-semibold text-slate-700 text-sm;
+    }
+
+    .vms-table tbody td {
+        @apply border-t border-slate-200 px-4 py-3 align-middle text-slate-700;
+    }
+
+    .vms-table tbody tr:hover {
+        @apply bg-slate-50;
+    }
+
+    /* ---------------- Stat cards ---------------- */
+    .vms-stat {
+        @apply rounded-lg border bg-white p-4;
+    }
+
+    .vms-stat-blue {
+        @apply rounded-lg border border-blue-200 bg-blue-50 p-4;
+    }
+
+    .vms-stat-green {
+        @apply rounded-lg border border-emerald-200 bg-emerald-50 p-4;
+    }
+
+    .vms-stat-orange {
+        @apply rounded-lg border border-orange-200 bg-orange-50 p-4;
+    }
+
+    .vms-stat-purple {
+        @apply rounded-lg border border-purple-200 bg-purple-50 p-4;
+    }
+
+    .vms-stat-red {
+        @apply rounded-lg border border-red-200 bg-red-50 p-4;
+    }
+
+    .vms-stat-gray {
+        @apply rounded-lg border border-slate-200 bg-slate-50 p-4;
+    }
+
+    /* ---------------- Banners ---------------- */
+    .vms-banner {
+        @apply rounded-lg border px-4 py-3 text-sm;
+    }
+
+    .vms-banner-info {
+        @apply vms-banner border-blue-200 bg-blue-50 text-blue-900;
+    }
+
+    .vms-banner-success {
+        @apply vms-banner border-emerald-200 bg-emerald-50 text-emerald-900;
+    }
+
+    .vms-banner-warning {
+        @apply vms-banner border-yellow-300 bg-yellow-50 text-yellow-900;
+    }
+
+    .vms-banner-danger {
+        @apply vms-banner border-red-200 bg-red-50 text-red-900;
+    }
+
+    .vms-banner-purple {
+        @apply vms-banner border-purple-200 bg-purple-50 text-purple-900;
+    }
+
+    /* ---------------- Modal ---------------- */
+    .vms-modal-card {
+        @apply rounded-lg border border-slate-200 bg-white shadow-2xl;
+    }
+
+    /* ---------------- Pagination ---------------- */
+    .vms-pagination :is(a, span) {
+        @apply inline-flex items-center justify-center rounded-md border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-700;
+    }
+
+    .vms-pagination a:hover {
+        @apply bg-slate-50;
+    }
+
+    .vms-pagination [aria-current="page"] > span {
+        @apply bg-slate-900 text-white border-slate-900;
+    }
+}

@@ -5,8 +5,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow-sm" id="topNavBar">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
-            <img src="{{ $refAsset }}/ref_ui/AdminLTELogo.png" width="28" height="28" class="d-inline-block mr-2 rounded-circle" alt="">
-            {{ config('app.name') }}
+            <span class="vms-brand-icon mr-2" aria-hidden="true"><i class="fas fa-car-side"></i></span>
+            <span class="font-weight-bold">{{ config('app.name') }}</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#publicNav" aria-controls="publicNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
@@ -31,22 +32,33 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
+            'role' => ['required', 'string', Rule::in(['owner', 'mechanic'])],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $role = (string) $request->input('role', 'owner');
+        $status = $role === 'mechanic' ? 'inactive' : 'active';
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => 'owner',
+            'role' => $role,
+            'status' => $status,
+            'current_status' => $role === 'mechanic' ? 'off_duty' : 'off_duty',
         ]);
 
         event(new Registered($user));
 
-        Auth::login($user);
+        if ($status === 'active') {
+            Auth::login($user);
+            return redirect(route('dashboard', absolute: false));
+        }
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect()
+            ->route('login')
+            ->with('status', 'Registration submitted. Your account is awaiting admin approval.');
     }
 }

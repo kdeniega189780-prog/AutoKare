@@ -67,19 +67,19 @@
 
                 <div class="row mt-3" style="margin:0 -6px;">
                     <div class="col-md-4 px-2 mb-2">
-                        <div class="vms-card vms-card-pad" style="background:#f9fafb; padding:10px 14px;">
+                        <div class="vms-card vms-card-pad vms-surface-subtle" style="padding:10px 14px;">
                             <div class="vms-info-cell-label">{{ __('Assigned To') }}</div>
                             <div class="vms-info-cell-value">{{ $assigneeName }}</div>
                         </div>
                     </div>
                     <div class="col-md-4 px-2 mb-2">
-                        <div class="vms-card vms-card-pad" style="background:#f9fafb; padding:10px 14px;">
+                        <div class="vms-card vms-card-pad vms-surface-subtle" style="padding:10px 14px;">
                             <div class="vms-info-cell-label">{{ __('Assigned Date') }}</div>
                             <div class="vms-info-cell-value">{{ $task->scheduled_at?->format('Y-m-d') ?? '—' }}</div>
                         </div>
                     </div>
                     <div class="col-md-4 px-2 mb-2">
-                        <div class="vms-card vms-card-pad" style="background:#f9fafb; padding:10px 14px;">
+                        <div class="vms-card vms-card-pad vms-surface-subtle" style="padding:10px 14px;">
                             <div class="vms-info-cell-label">{{ __('Est. Duration') }}</div>
                             <div class="vms-info-cell-value">{{ $estLabel }}</div>
                         </div>

@@ -1,32 +1,37 @@
 @extends('layouts.public')
 
 @section('content')
-    <header class="bg-dark text-white position-relative overflow-hidden" id="main-header" style="min-height: 55vh;">
-        <div class="position-absolute w-100 h-100" style="background: radial-gradient(circle, rgba(0,0,0,0.55) 22%, rgba(0,0,0,0.35) 50%, rgba(0,212,255,0) 100%); z-index: 1;"></div>
-        <div class="container position-relative d-flex align-items-end h-100 py-5" style="z-index: 2; min-height: 55vh;">
+    <header class="vms-public-hero" id="main-header">
+        <div class="container d-flex align-items-end h-100 py-5">
             <div class="text-center w-100 pb-4">
-                <h1 class="display-4 font-weight-bold">{{ config('app.name') }}</h1>
-                <p class="lead text-white-50 mb-4">{{ __('Schedule maintenance, track service history, and manage your fleet.') }}</p>
+                <div class="mx-auto" style="max-width: 52rem;">
+                    <div class="mb-3">
+                        <span class="vms-brand-icon-lg" aria-hidden="true"><i class="fas fa-car-side"></i></span>
+                    </div>
+                    <h1 class="display-4 font-weight-bold mb-3">{{ config('app.name') }}</h1>
+                    <p class="lead text-white-50 mb-4">{{ __('Schedule maintenance, track service history, and manage your fleet.') }}</p>
+                </div>
                 @guest
                     <div>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="btn btn-primary btn-lg rounded-0 mr-2">{{ __('Register') }}</a>
+                            <a href="{{ route('register') }}" class="btn btn-primary btn-lg px-4 mr-2 shadow-sm">{{ __('Register') }}</a>
                         @endif
-                        <a href="{{ route('login') }}" class="btn btn-outline-light btn-lg rounded-0">{{ __('Log in') }}</a>
+                        <a href="{{ route('login') }}" class="btn btn-outline-light btn-lg px-4">{{ __('Log in') }}</a>
                     </div>
                 @else
-                    <a href="{{ route('dashboard') }}" class="btn btn-primary btn-lg rounded-0">{{ __('Dashboard') }}</a>
+                    <a href="{{ route('dashboard') }}" class="btn btn-primary btn-lg px-4 shadow-sm">{{ __('Dashboard') }}</a>
                 @endguest
             </div>
         </div>
     </header>
 
-    <section class="py-5 bg-light">
+    <section class="vms-public-section vms-public-section-light">
         <div class="container">
             <div class="row">
                 <div class="col-md-5 mb-4">
-                    <h3 class="text-center">{{ __('Built for') }}</h3>
-                    <hr class="border-primary bg-primary">
+                    <h2 class="h4 font-weight-bold text-center mb-2">{{ __('Built for') }}</h2>
+                    <div class="mx-auto bg-primary" style="height:3px;width:64px;border-radius:999px;"></div>
+                    <div class="mb-4"></div>
                     <ul class="list-group list-group-flush shadow-sm">
                         <li class="list-group-item"><strong>{{ __('Vehicle owners') }}</strong> — {{ __('register vehicles and book service') }}</li>
                         <li class="list-group-item"><strong>{{ __('Mechanics') }}</strong> — {{ __('record parts, labor, and completion') }}</li>
@@ -34,8 +39,9 @@
                     </ul>
                 </div>
                 <div class="col-md-7">
-                    <h3 class="text-center">{{ __('At a glance') }}</h3>
-                    <hr class="border-primary bg-primary">
+                    <h2 class="h4 font-weight-bold text-center mb-2">{{ __('At a glance') }}</h2>
+                    <div class="mx-auto bg-primary" style="height:3px;width:64px;border-radius:999px;"></div>
+                    <div class="mb-4"></div>
                     <p class="text-muted">
                         {{ __('This application keeps the same Laravel backend you already have—vehicles, maintenance schedules, service records, role-based access, and CSV reports—while presenting the interface in the same AdminLTE / Bootstrap style as the reference vehicle service project.') }}
                     </p>

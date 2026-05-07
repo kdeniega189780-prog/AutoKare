@@ -37,6 +37,7 @@
 
 <script>
 (function () {
+    var form = document.querySelector('form[action="{{ route('customer.vehicles.store') }}"]');
     var mk = document.getElementById('cust_make_model');
     var yearV = document.getElementById('cust_year_visible');
     var make = document.getElementById('cust_make');
@@ -55,5 +56,13 @@
     function syncYear() { year.value = yearV.value; }
     if (mk) mk.addEventListener('input', syncMakeModel);
     if (yearV) yearV.addEventListener('input', syncYear);
+
+    // Run once on load and again right before submit.
+    try { syncMakeModel(); syncYear(); } catch (e) { /* ignore */ }
+    if (form) {
+        form.addEventListener('submit', function () {
+            try { syncMakeModel(); syncYear(); } catch (e) { /* ignore */ }
+        });
+    }
 })();
 </script>

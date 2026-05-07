@@ -98,8 +98,11 @@
     var input = document.getElementById('make_model');
     var make = document.getElementById('make');
     var model = document.getElementById('model');
+    var form = document.getElementById('vmsAddVehicleForm');
+    var sync = null;
+
     if (input && make && model) {
-        var sync = function () {
+        sync = function () {
             var txt = input.value.trim();
             var parts = txt.split(/\s+/);
             if (/^\d{4}$/.test(parts[0])) {
@@ -112,6 +115,13 @@
         };
         input.addEventListener('input', sync);
         sync();
+    }
+
+    // Ensure hidden fields are always up-to-date at submit time (paste/autofill + modal injection edge-cases).
+    if (form && typeof sync === 'function') {
+        form.addEventListener('submit', function () {
+            try { sync(); } catch (e) { /* ignore */ }
+        });
     }
 
     var search = document.getElementById('vms_customer_search');

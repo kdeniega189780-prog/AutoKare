@@ -3,6 +3,21 @@
         @csrf
 
         <div class="input-group mb-3">
+            <select id="role" name="role" required class="form-control @error('role') is-invalid @enderror">
+                <option value="owner" @selected(old('role', 'owner') === 'owner')>{{ __('Customer') }}</option>
+                <option value="mechanic" @selected(old('role') === 'mechanic')>{{ __('Mechanic') }}</option>
+            </select>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-user-tag"></span>
+                </div>
+            </div>
+            @error('role')
+                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+            @enderror
+        </div>
+
+        <div class="input-group mb-3">
             <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus autocomplete="name"
                    class="form-control @error('name') is-invalid @enderror" placeholder="{{ __('Full name') }}">
             <div class="input-group-append">

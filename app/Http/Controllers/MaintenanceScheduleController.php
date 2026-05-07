@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreScheduleRequest;
+use App\Http\Requests\UpdateScheduleRequest;
 use App\Models\MaintenanceSchedule;
 use App\Models\User;
 use App\Models\Vehicle;
@@ -53,7 +55,7 @@ class MaintenanceScheduleController extends Controller
         return view('schedules.create', compact('vehicles', 'mechanics', 'selectedVehicleId'));
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(StoreScheduleRequest $request): RedirectResponse
     {
         $this->authorize('create', MaintenanceSchedule::class);
 
@@ -65,16 +67,7 @@ class MaintenanceScheduleController extends Controller
             ]);
         }
 
-        $validated = $request->validate([
-            'vehicle_id' => ['required', 'exists:vehicles,id'],
-            'mechanic_id' => ['nullable', 'exists:users,id'],
-            'scheduled_at' => ['required', 'date'],
-            'task_description' => ['required', 'string', 'max:500'],
-            'status' => ['nullable', 'in:pending,in_progress,completed,cancelled'],
-            'priority' => ['nullable', 'in:low,normal,high'],
-            'payment_method' => ['nullable', 'string', 'max:32'],
-            'description' => ['nullable', 'string', 'max:2000'],
-        ]);
+        $validated = $request->validated();
 
         $vehicle = Vehicle::findOrFail($validated['vehicle_id']);
         if ($request->user()->isOwner() && (($vehicle->owner_id ?? $vehicle->user_id) !== $request->user()->id)) {
@@ -172,7 +165,7 @@ class MaintenanceScheduleController extends Controller
         return view('modals.schedules.edit', $view->getData());
     }
 
-    public function update(Request $request, MaintenanceSchedule $schedule): RedirectResponse
+    public function update(UpdateScheduleRequest $request, MaintenanceSchedule $schedule): RedirectResponse
     {
         $this->authorize('update', $schedule);
 
@@ -183,14 +176,7 @@ class MaintenanceScheduleController extends Controller
             ]);
         }
 
-        $validated = $request->validate([
-            'vehicle_id' => ['required', 'exists:vehicles,id'],
-            'mechanic_id' => ['nullable', 'exists:users,id'],
-            'scheduled_at' => ['required', 'date'],
-            'task_description' => ['required', 'string', 'max:500'],
-            'status' => ['required', 'in:pending,in_progress,completed,cancelled'],
-            'priority' => ['nullable', 'in:low,normal,high'],
-        ]);
+        $validated = $request->validated();
 
         $vehicle = Vehicle::findOrFail($validated['vehicle_id']);
         if ($request->user()->isOwner() && (($vehicle->owner_id ?? $vehicle->user_id) !== $request->user()->id)) {

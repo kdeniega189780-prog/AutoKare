@@ -59,17 +59,24 @@
 
 <script>
 (function () {
+    var form = document.querySelector('form[action="{{ route('vehicles.update', $vehicle) }}"]');
     var input = document.getElementById('make_model_e');
     var make = document.getElementById('make_e');
     var model = document.getElementById('model_e');
     if (input && make && model) {
-        input.addEventListener('input', function () {
+        var sync = function () {
             var txt = input.value.trim();
             var parts = txt.split(/\s+/);
             if (/^\d{4}$/.test(parts[0])) parts.shift();
             make.value = parts[0] || '';
             model.value = parts.slice(1).join(' ') || '';
-        });
+        };
+        input.addEventListener('input', sync);
+        if (form) {
+            form.addEventListener('submit', function () {
+                try { sync(); } catch (e) { /* ignore */ }
+            });
+        }
     }
 })();
 </script>

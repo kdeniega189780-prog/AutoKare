@@ -4,7 +4,7 @@
         <button type="button" class="vms-modal-close" data-modal-close aria-label="Close">&times;</button>
     </div>
 
-    <div class="vms-card vms-card-pad mb-3" style="background:#f9fafb; padding:12px 14px;">
+    <div class="vms-card vms-card-pad mb-3 vms-surface-subtle" style="padding:12px 14px;">
         <div class="vms-info-cell-label">{{ __('Task:') }}</div>
         <div class="vms-info-cell-value">{{ $schedule->vehicle?->shortId() }} - {{ $schedule->task_description }}</div>
     </div>

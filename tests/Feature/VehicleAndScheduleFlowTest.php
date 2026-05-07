@@ -37,7 +37,7 @@ class VehicleAndScheduleFlowTest extends TestCase
             'scheduled_at' => now()->addDays(3)->format('Y-m-d\TH:i'),
             'task_description' => 'Oil change',
         ])->assertSessionHasNoErrors()
-            ->assertRedirect(route('schedules.index'));
+            ->assertRedirect(route('customer.appointments'));
 
         $this->assertDatabaseHas('maintenance_schedules', [
             'vehicle_id' => $vehicle->id,

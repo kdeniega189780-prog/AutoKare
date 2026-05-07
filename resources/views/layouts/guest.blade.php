@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Vehicle Maintenance System') }}</title>
+    <title>{{ config('app.name') }}</title>
 
+    @include('layouts.partials.vms-fonts')
     <link rel="stylesheet" href="{{ asset('vehicle-ref/plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vehicle-ref/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vehicle-ref/dist/css/adminlte.min.css') }}">
@@ -15,7 +16,7 @@
 <div class="login-box">
     <div class="login-logo">
         <span class="vms-brand-icon-lg"><i class="fas fa-user-circle"></i></span>
-        <div class="mt-2"><b>Vehicle</b> Maintenance System</div>
+        <div class="mt-2">{{ config('app.name') }}</div>
     </div>
     <div class="card card-outline card-primary">
         <div class="card-body login-card-body">

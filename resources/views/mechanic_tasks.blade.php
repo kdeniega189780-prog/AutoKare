@@ -1,5 +1,10 @@
 <x-app-layout>
-    <h1 class="vms-page-title mb-4">{{ __('Assigned Tasks') }}</h1>
+    <div class="vms-page-header">
+        <div>
+            <h1 class="vms-page-title">{{ __('Assigned Tasks') }}</h1>
+            <p class="vms-page-subtitle">{{ __('Start, assign, and track scheduled work for your vehicles.') }}</p>
+        </div>
+    </div>
 
     @forelse ($tasks as $task)
         @php

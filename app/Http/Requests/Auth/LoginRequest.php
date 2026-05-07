@@ -50,6 +50,19 @@ class LoginRequest extends FormRequest
             ]);
         }
 
+        $user = Auth::user();
+        if (($user?->status ?? 'active') !== 'active') {
+            Auth::logout();
+
+            throw ValidationException::withMessages([
+                'email' => 'Your account is inactive or awaiting approval.',
+            ]);
+        }
+
+        if ($user) {
+            $user->forceFill(['last_login_at' => now()])->save();
+        }
+
         RateLimiter::clear($this->throttleKey());
     }
 

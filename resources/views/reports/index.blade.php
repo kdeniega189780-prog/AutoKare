@@ -29,59 +29,59 @@
             </h3>
         </div>
         <div class="card-body">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <h3>{{ $totalAppointments }}</h3>
-                            <p>Total Appointments</p>
+            <div class="vms-icon-tiles">
+                <div class="vms-icon-tile">
+                    <div class="vms-icon-tile-left">
+                        <span class="vms-icon-tile-icon vms-it-blue"><i class="fas fa-calendar-check"></i></span>
+                        <div class="vms-icon-tile-text">
+                            <div class="vms-icon-tile-label">Total Appointments</div>
+                            <div class="vms-icon-tile-value">{{ $totalAppointments }}</div>
                         </div>
-                        <div class="icon"><i class="fas fa-calendar-check"></i></div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="small-box bg-success">
-                        <div class="inner">
-                            <h3>{{ $completedServices }}</h3>
-                            <p>Completed Services</p>
+                <div class="vms-icon-tile">
+                    <div class="vms-icon-tile-left">
+                        <span class="vms-icon-tile-icon vms-it-green"><i class="fas fa-check-circle"></i></span>
+                        <div class="vms-icon-tile-text">
+                            <div class="vms-icon-tile-label">Completed Services</div>
+                            <div class="vms-icon-tile-value">{{ $completedServices }}</div>
                         </div>
-                        <div class="icon"><i class="fas fa-check-circle"></i></div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="small-box bg-warning">
-                        <div class="inner">
-                            <h3>{{ $pendingAppointments }}</h3>
-                            <p>Pending Appointments</p>
+                <div class="vms-icon-tile">
+                    <div class="vms-icon-tile-left">
+                        <span class="vms-icon-tile-icon vms-it-amber"><i class="fas fa-clock"></i></span>
+                        <div class="vms-icon-tile-text">
+                            <div class="vms-icon-tile-label">Pending Appointments</div>
+                            <div class="vms-icon-tile-value">{{ $pendingAppointments }}</div>
                         </div>
-                        <div class="icon"><i class="fas fa-clock"></i></div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="small-box bg-purple">
-                        <div class="inner">
-                            <h3>${{ number_format($totalRevenue, 0) }}</h3>
-                            <p>Total Revenue</p>
+                <div class="vms-icon-tile">
+                    <div class="vms-icon-tile-left">
+                        <span class="vms-icon-tile-icon vms-it-purple"><i class="fas fa-dollar-sign"></i></span>
+                        <div class="vms-icon-tile-text">
+                            <div class="vms-icon-tile-label">Total Revenue</div>
+                            <div class="vms-icon-tile-value">${{ number_format($totalRevenue, 0) }}</div>
                         </div>
-                        <div class="icon"><i class="fas fa-dollar-sign"></i></div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="small-box bg-secondary">
-                        <div class="inner">
-                            <h3>{{ $activeCustomers }}</h3>
-                            <p>Active Customers</p>
+                <div class="vms-icon-tile">
+                    <div class="vms-icon-tile-left">
+                        <span class="vms-icon-tile-icon vms-it-gray"><i class="fas fa-users"></i></span>
+                        <div class="vms-icon-tile-text">
+                            <div class="vms-icon-tile-label">Active Customers</div>
+                            <div class="vms-icon-tile-value">{{ $activeCustomers }}</div>
                         </div>
-                        <div class="icon"><i class="fas fa-users"></i></div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="small-box bg-dark">
-                        <div class="inner">
-                            <h3>{{ $activeVehicles }}</h3>
-                            <p>Active Vehicles</p>
+                <div class="vms-icon-tile">
+                    <div class="vms-icon-tile-left">
+                        <span class="vms-icon-tile-icon vms-it-blue"><i class="fas fa-car"></i></span>
+                        <div class="vms-icon-tile-text">
+                            <div class="vms-icon-tile-label">Active Vehicles</div>
+                            <div class="vms-icon-tile-value">{{ $activeVehicles }}</div>
                         </div>
-                        <div class="icon"><i class="fas fa-car"></i></div>
                     </div>
                 </div>
             </div>

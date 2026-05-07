@@ -8,6 +8,324 @@
     font-style: italic;
 }
 
+/* ===========================================================
+ * Typography system (distinct by function)
+ * =========================================================== */
+:root {
+    --vms-font-ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --vms-font-display: "Poppins", var(--vms-font-ui);
+    --vms-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    /* ===========================================================
+     * Color system (deep navy primary + modern neutrals)
+     * =========================================================== */
+    --vms-ink: #050914;
+    --vms-ink-2: #0b1220;
+    --vms-primary: #1e3a8a;
+    --vms-primary-hover: #1d4ed8;
+    --vms-primary-soft: rgba(30, 58, 138, 0.18);
+    --vms-border: rgba(148, 163, 184, 0.20);
+    --vms-surface: rgba(15, 23, 42, 0.72);
+    --vms-surface-2: #050914;
+    --vms-text: rgba(255, 255, 255, 0.94);
+    --vms-text-muted: rgba(255, 255, 255, 0.84);
+    --vms-focus: rgba(29, 78, 216, 0.28);
+
+    /* ===========================================================
+     * Glassy surface system (modern “SaaS” feel)
+     * =========================================================== */
+    --vms-bg-gradient: radial-gradient(1200px circle at 12% -10%, rgba(29, 78, 216, 0.22) 0%, rgba(30, 58, 138, 0.10) 26%, rgba(30, 58, 138, 0) 55%);
+    --vms-glass-bg: rgba(15, 23, 42, 0.68);
+    --vms-glass-bg-strong: rgba(15, 23, 42, 0.82);
+    --vms-glass-border: rgba(148, 163, 184, 0.18);
+    --vms-glass-blur: 12px;
+
+    --vms-shadow-1: 0 14px 40px rgba(0, 0, 0, 0.35);
+    --vms-shadow-2: 0 24px 70px rgba(0, 0, 0, 0.45);
+
+    --vms-radius-sm: 8px;
+    --vms-radius-md: 12px;
+    --vms-radius-lg: 16px;
+}
+
+body {
+    font-family: var(--vms-font-ui);
+    background-color: var(--vms-surface-2);
+    color: var(--vms-text);
+}
+
+a { color: rgba(147, 197, 253, 0.95); }
+a:hover { color: #ffffff; }
+
+/* Bootstrap helpers: ensure readability in dark palette */
+.text-muted { color: var(--vms-text-muted) !important; }
+.text-white-50 { color: rgba(255, 255, 255, 0.80) !important; }
+
+/* Subtle page-wide gradient (keeps content readable) */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: var(--vms-bg-gradient);
+    pointer-events: none;
+    z-index: 0;
+}
+body > * { position: relative; z-index: 1; }
+
+h1, h2, h3, h4, h5, h6,
+.navbar-brand,
+.vms-brand-text,
+.login-logo,
+.vms-page-title {
+    font-family: var(--vms-font-display);
+}
+
+code, pre,
+.vms-mono {
+    font-family: var(--vms-font-mono) !important;
+}
+
+/* ===========================================================
+ * Public pages (Home / About)
+ * =========================================================== */
+.vms-public-hero {
+    min-height: 55vh;
+    background: var(--vms-ink-2);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.vms-public-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(0,0,0,0.55) 22%, rgba(0,0,0,0.35) 50%, rgba(0,212,255,0) 100%);
+    z-index: 1;
+}
+
+.vms-public-hero > .container {
+    position: relative;
+    z-index: 2;
+    min-height: 55vh;
+}
+
+.vms-public-section {
+    padding: 3rem 0;
+}
+
+.vms-public-section-light {
+    background: var(--vms-surface-2);
+}
+
+/* Guest auth pages (Login/Register) */
+.login-page,
+.register-page {
+    background-color: var(--vms-surface-2) !important;
+}
+
+/* ===========================================================
+ * Bootstrap/AdminLTE primary overrides (keep semantic colors)
+ * =========================================================== */
+.bg-primary { background-color: var(--vms-primary) !important; }
+.text-primary { color: var(--vms-primary) !important; }
+.border-primary { border-color: var(--vms-primary) !important; }
+
+.btn-primary {
+    background-color: var(--vms-primary);
+    border-color: var(--vms-primary);
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+    background-color: var(--vms-primary-hover) !important;
+    border-color: var(--vms-primary-hover) !important;
+}
+
+.navbar-dark.bg-primary .navbar-brand,
+.navbar-dark.bg-primary .nav-link { color: rgba(255,255,255,0.92) !important; }
+.navbar-dark.bg-primary .nav-link:hover { color: #ffffff !important; }
+
+.card-primary.card-outline { border-top-color: var(--vms-primary) !important; }
+.card.card-outline.card-primary { border-top-color: var(--vms-primary) !important; }
+
+.page-item.active .page-link {
+    background-color: var(--vms-primary);
+    border-color: var(--vms-primary);
+}
+
+.btn:focus,
+.btn.focus,
+.form-control:focus,
+.custom-select:focus {
+    box-shadow: 0 0 0 0.2rem var(--vms-focus) !important;
+}
+
+/* ===========================================================
+ * Icon tiles (replacement for AdminLTE small-box)
+ * =========================================================== */
+.vms-icon-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+@media (max-width: 992px) {
+    .vms-icon-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 576px) {
+    .vms-icon-tiles { grid-template-columns: 1fr; }
+}
+.vms-icon-tile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: var(--vms-radius-md);
+    background: var(--vms-glass-bg-strong);
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    box-shadow: var(--vms-shadow-1);
+}
+.vms-icon-tile-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+.vms-icon-tile-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+}
+.vms-icon-tile-text { min-width: 0; }
+.vms-icon-tile-label {
+    font-size: 12px;
+    color: rgba(226, 232, 240, 0.70);
+    line-height: 1.2;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.vms-icon-tile-value {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.1;
+}
+.vms-icon-tile-icon.vms-it-blue   { background: #2563eb; }
+.vms-icon-tile-icon.vms-it-green  { background: #16a34a; }
+.vms-icon-tile-icon.vms-it-red    { background: #dc2626; }
+.vms-icon-tile-icon.vms-it-amber  { background: #d97706; }
+.vms-icon-tile-icon.vms-it-purple { background: #7c3aed; }
+.vms-icon-tile-icon.vms-it-gray   { background: rgba(148, 163, 184, 0.28); color: rgba(255,255,255,0.92); }
+
+/* ===========================================================
+ * Glassy components (cards/tables/lists/modals)
+ * =========================================================== */
+
+/* Bootstrap cards */
+.card {
+    border-radius: var(--vms-radius-md);
+    border: 1px solid var(--vms-glass-border);
+    background: var(--vms-glass-bg);
+    backdrop-filter: blur(var(--vms-glass-blur));
+    -webkit-backdrop-filter: blur(var(--vms-glass-blur));
+    box-shadow: var(--vms-shadow-1);
+}
+.card .card-header {
+    background: rgba(15, 23, 42, 0.55);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+/* Custom VMS cards */
+.vms-card,
+.vms-vehicle-card,
+.vms-task-card,
+.vms-stat-card,
+.vms-info-card,
+.vms-role-tile {
+    background: var(--vms-glass-bg-strong);
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: var(--vms-radius-md);
+    box-shadow: var(--vms-shadow-1);
+}
+
+/* Subtle inner surfaces used inside cards/modals */
+.vms-surface-subtle {
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: var(--vms-radius-sm);
+}
+
+/* Tables (Bootstrap) */
+.table.vms-light th {
+    background: rgba(2, 6, 23, 0.35);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+}
+.table.vms-light td { border-top: 1px solid rgba(148, 163, 184, 0.10); }
+.table.vms-light { color: rgba(255, 255, 255, 0.88); }
+.table.vms-light tbody tr:hover { background: rgba(148, 163, 184, 0.16); }
+
+/* Ensure BS4 hover tables are visible in dark mode */
+.table.table-hover tbody tr:hover {
+    background-color: rgba(148, 163, 184, 0.16);
+}
+
+/* On row hover: tint text to header/brand blue */
+.table.table-hover tbody tr:hover td,
+.table.table-hover tbody tr:hover th,
+.vms-table tbody tr:hover td,
+.vms-table tbody tr:hover th {
+    color: rgba(147, 197, 253, 0.95) !important;
+}
+
+/* Tables (custom vms-table) */
+.vms-table thead th {
+    background: rgba(2, 6, 23, 0.35);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+}
+.vms-table tbody td { border-top: 1px solid rgba(148, 163, 184, 0.10); }
+.vms-table tbody tr:hover { background: rgba(148, 163, 184, 0.16); }
+.vms-table { color: rgba(255, 255, 255, 0.88); }
+
+/* Override “text-dark” helpers used in blades for dark theme */
+.text-dark { color: rgba(255, 255, 255, 0.92) !important; }
+
+/* List groups */
+.list-group-item {
+    border-color: rgba(148, 163, 184, 0.14);
+    background: rgba(15, 23, 42, 0.55);
+    color: rgba(255, 255, 255, 0.88);
+}
+.list-group-item-action:hover,
+.list-group-item-action:focus {
+    background: rgba(29, 78, 216, 0.12);
+}
+
+/* Modals */
+.modal-content {
+    border-radius: var(--vms-radius-lg);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    box-shadow: var(--vms-shadow-2);
+    background: rgba(15, 23, 42, 0.92);
+    color: rgba(255, 255, 255, 0.90);
+}
+.modal-header {
+    border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+    background: rgba(15, 23, 42, 0.75);
+}
+.modal-footer {
+    border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
 .truncate-1 {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -115,28 +433,28 @@ span.btn:hover {
     width: 100%;
     border-collapse: collapse;
     font-size: 13px;
-    color: #374151;
+    color: rgba(255, 255, 255, 0.88);
 }
 .vms-table thead th {
-    background: #f9fafb;
-    border-bottom: 1px solid #e5e7eb;
+    background: rgba(30, 58, 138, 0.05);
+    border-bottom: 1px solid rgba(30, 58, 138, 0.10);
     border-top: 0;
     font-weight: 600;
     font-size: 12px;
-    color: #6b7280;
+    color: var(--vms-text-muted);
     text-transform: none;
     text-align: left;
     padding: 12px 18px;
     white-space: nowrap;
 }
 .vms-table tbody td {
-    border-top: 1px solid #f3f4f6;
+    border-top: 1px solid rgba(148, 163, 184, 0.10);
     vertical-align: middle;
     padding: 14px 18px;
-    color: #374151;
+    color: rgba(255, 255, 255, 0.88);
 }
 .vms-table tbody tr:first-child td { border-top: 0; }
-.vms-table tbody tr:hover { background: #fafbfc; }
+.vms-table tbody tr:hover { background: rgba(148, 163, 184, 0.06); }
 .vms-table .text-right { text-align: right; }
 
 .vms-pill {
@@ -149,7 +467,7 @@ span.btn:hover {
     font-size: 12px;
     line-height: 1;
     font-weight: 600;
-    background: #fff;
+    background: rgba(15, 23, 42, 0.55);
 }
 
 .vms-pill.vms-pill-blue {
@@ -173,14 +491,14 @@ span.btn:hover {
 }
 
 .vms-modal-section {
-    border: 1px solid #e5e7eb;
+    border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 10px;
     padding: 16px;
-    background: #fff;
+    background: rgba(15, 23, 42, 0.55);
 }
 
 .vms-modal-section.vms-modal-section-blue {
-    background: #eff6ff;
+    background: rgba(29, 78, 216, 0.12);
     border-color: #bfdbfe;
 }
 
@@ -201,37 +519,37 @@ span.btn:hover {
 
 /* Sidebar chip-style nav (match screenshots) */
 .vms-side-nav .nav-link {
-    background: #ffffff;
+    background: var(--vms-surface);
     border: 1px solid #d1d5db;
     border-radius: 6px;
     margin: 0 12px 8px 12px;
     padding: 12px 14px;
     font-size: 14px;
     font-weight: 500;
-    color: #111827 !important;
+    color: var(--vms-text) !important;
 }
 
 .vms-side-nav .nav-link .nav-icon {
-    color: #374151 !important;
+    color: rgba(226, 232, 240, 0.82) !important;
     font-size: 14px;
     margin-right: 8px;
 }
 
 .vms-side-nav .nav-link.active {
-    background: #e5e7eb !important;
-    border-color: #cbd5e1 !important;
-    color: #111827 !important;
+    background: var(--vms-primary-soft) !important;
+    border-color: #bfdbfe !important;
+    color: var(--vms-primary) !important;
 }
 
 .vms-side-nav .nav-link:hover {
-    background: #f3f4f6;
-    color: #111827 !important;
+    background: rgba(148, 163, 184, 0.08);
+    color: var(--vms-text) !important;
 }
 
 .vms-side-nav .nav-header {
     margin: 10px 8px 6px 8px;
     padding: 0;
-    color: #6b7280;
+    color: var(--vms-text-muted);
 }
 
 #tourCarousel {
@@ -315,7 +633,7 @@ label.star:before {
     width: 32px;
     height: 32px;
     border-radius: 6px;
-    background: #111827 !important;
+    background: rgba(15, 23, 42, 0.80) !important;
     color: #fff !important;
 }
 .vms-brand-icon i { color: #fff !important; }
@@ -326,14 +644,17 @@ label.star:before {
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background: #111827;
+    background: rgba(15, 23, 42, 0.80);
     color: #fff;
     font-size: 32px;
     margin: 0 auto;
 }
+.vms-public-hero .vms-brand-icon-lg {
+    box-shadow: 0 18px 60px rgba(29, 78, 216, 0.35);
+}
 .vms-brand-text {
     font-weight: 700;
-    color: #111827;
+    color: var(--vms-text);
     font-size: 16px;
 }
 .vms-role-badge {
@@ -350,8 +671,8 @@ label.star:before {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: #e5e7eb;
-    color: #6b7280;
+    background: rgba(148, 163, 184, 0.18);
+    color: rgba(255, 255, 255, 0.85);
 }
 .lh-1 { line-height: 1.1; }
 
@@ -361,11 +682,13 @@ label.star:before {
     align-items: center;
     flex-wrap: nowrap;
     padding: 0 12px;
-    border-bottom: 1px solid #e5e7eb;
-    background: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    background: var(--vms-primary);
     height: 56px;
     overflow: hidden;
 }
+.vms-sidebar-brand .vms-brand-text { color: rgba(255, 255, 255, 0.92) !important; }
+.vms-sidebar-brand .vms-brand-icon { background: rgba(0, 0, 0, 0.18) !important; }
 .vms-sidebar-brand .vms-brand-text {
     font-size: 13px;
     white-space: nowrap;
@@ -382,22 +705,22 @@ label.star:before {
 
 /* Sidebar bottom info card (bordered) */
 .vms-sidebar-info-card {
-    border: 1px solid #e5e7eb;
-    background: #ffffff;
+    border: 1px solid var(--vms-border);
+    background: var(--vms-surface);
     border-radius: 8px;
     margin: 12px 12px 0 12px;
     padding: 12px 14px;
     font-size: 12px;
-    color: #475569;
+    color: rgba(226, 232, 240, 0.70);
 }
 .vms-sidebar-info-card-blue {
     border-color: #bfdbfe;
-    background: #eff6ff;
-    color: #1e3a8a;
+    background: var(--vms-primary-soft);
+    color: var(--vms-primary);
 }
 .vms-sidebar-info-card .vms-sidebar-info-title {
     font-weight: 700;
-    color: #111827;
+    color: rgba(255, 255, 255, 0.92);
     margin-bottom: 8px;
     font-size: 12px;
 }
@@ -412,14 +735,14 @@ label.star:before {
     align-items: center;
     padding: 2px 0;
     gap: 8px;
-    color: #334155;
+    color: rgba(226, 232, 240, 0.78);
 }
 .vms-sidebar-info-card .vms-sidebar-info-list li i {
     margin-right: 6px;
     font-size: 10px;
 }
 .vms-sidebar-info-card .vms-sidebar-info-list li strong {
-    color: #111827;
+    color: rgba(255, 255, 255, 0.92);
 }
 
 /* Login page demo role picker */
@@ -433,8 +756,8 @@ label.star:before {
     align-items: center;
     gap: 12px;
     width: 100%;
-    background: #fff;
-    border: 1px solid #e5e7eb;
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 6px;
     padding: 8px 12px;
     text-align: left;
@@ -442,8 +765,8 @@ label.star:before {
     transition: background 0.15s ease;
 }
 .vms-demo-role-btn:hover {
-    background: #f9fafb;
-    border-color: #d1d5db;
+    background: rgba(15, 23, 42, 0.78);
+    border-color: rgba(148, 163, 184, 0.20);
 }
 .vms-demo-role-icon {
     display: inline-flex;
@@ -452,7 +775,7 @@ label.star:before {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: #f3f4f6;
+    background: rgba(148, 163, 184, 0.16);
     font-size: 14px;
 }
 .vms-demo-role-text {
@@ -462,12 +785,12 @@ label.star:before {
 }
 .vms-demo-role-name {
     font-weight: 700;
-    color: #111827;
+    color: rgba(255, 255, 255, 0.92);
     font-size: 13px;
 }
 .vms-demo-role-email {
     font-size: 11px;
-    color: #6b7280;
+    color: rgba(226, 232, 240, 0.70);
 }
 
 /* Page header */
@@ -475,11 +798,11 @@ label.star:before {
     margin: 0 0 4px 0;
     font-size: 22px;
     font-weight: 700;
-    color: #111827;
+    color: rgba(255, 255, 255, 0.92);
 }
 .vms-page-subtitle {
     margin: 0 0 16px 0;
-    color: #6b7280;
+    color: rgba(226, 232, 240, 0.70);
     font-size: 14px;
 }
 .vms-page-header {
@@ -493,22 +816,22 @@ label.star:before {
 
 /* Stat cards */
 .vms-stat-card {
-    background: #fff;
+    background: var(--vms-glass-bg-strong);
     border-radius: 8px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid rgba(148, 163, 184, 0.14);
     padding: 16px;
     height: 100%;
 }
 .vms-stat-card .vms-stat-label {
     font-size: 12px;
-    color: #6b7280;
+    color: rgba(226, 232, 240, 0.70);
     margin-bottom: 4px;
 }
 .vms-stat-card .vms-stat-value {
     font-size: 28px;
     font-weight: 700;
     line-height: 1.1;
-    color: #111827;
+    color: rgba(255, 255, 255, 0.92);
 }
 .vms-stat-card .vms-stat-icon {
     display: inline-flex;
@@ -571,30 +894,30 @@ label.star:before {
 
 /* Data tables - lighter feel matching screenshots */
 .table.vms-light th {
-    background: #f9fafb;
+    background: rgba(30, 58, 138, 0.06);
     font-weight: 600;
     font-size: 12px;
     text-transform: uppercase;
-    color: #6b7280;
-    border-bottom: 1px solid #e5e7eb;
+    color: var(--vms-text-muted);
+    border-bottom: 1px solid rgba(30, 58, 138, 0.10);
     border-top: 0;
 }
 .table.vms-light td {
     vertical-align: middle;
-    border-top: 1px solid #f3f4f6;
+    border-top: 1px solid rgba(30, 58, 138, 0.06);
 }
 
 /* Service report (mechanic_completed modal) */
 .vms-report-section {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
+    background: var(--vms-glass-bg-strong);
+    border: 1px solid rgba(30, 58, 138, 0.10);
+    border-radius: var(--vms-radius-md);
     padding: 14px 16px;
     margin-bottom: 12px;
 }
 .vms-report-section h6 {
     font-weight: 700;
-    color: #111827;
+    color: rgba(255, 255, 255, 0.92);
     margin-bottom: 8px;
     font-size: 13px;
     text-transform: uppercase;
@@ -617,7 +940,7 @@ label.star:before {
 .main-sidebar.sidebar-light,
 .sidebar-light-primary .main-sidebar,
 .main-sidebar.sidebar-light-primary {
-    background-color: #ffffff !important;
+    background-color: var(--vms-surface) !important;
 }
 /* Lock sidebar permanently visible regardless of AdminLTE JS state (no slide/transform) */
 body.layout-fixed .main-sidebar,
@@ -639,24 +962,30 @@ body.vms-static .main-footer {
 }
 body.vms-static .main-sidebar {
     width: 320px;
-    background: #ffffff !important;
+    background: var(--vms-surface) !important;
 }
 
-/* Force active nav-pill to gray, never AdminLTE blue */
+/* Force active nav-pill to our primary-soft (never AdminLTE default blue) */
 .main-sidebar .nav-sidebar > .nav-item > .nav-link.active,
 .vms-side-nav .nav-link.active {
-    background: #e5e7eb !important;
-    color: #111827 !important;
+    background: var(--vms-primary-soft) !important;
+    color: var(--vms-primary) !important;
     box-shadow: none !important;
 }
 
 /* Ensure content-wrapper has the same off-white background as the screenshots */
-.content-wrapper { background-color: #f3f4f6; }
+.content-wrapper { background-color: var(--vms-surface-2); }
+
+/* Topbar avatar on dark primary background */
+.navbar-dark .vms-avatar {
+    background: rgba(255, 255, 255, 0.16);
+    color: rgba(255, 255, 255, 0.9);
+}
 
 /* Compact info-box used in user management role tiles */
 .vms-role-tile {
-    background: #fff;
-    border: 1px solid #e5e7eb;
+    background: var(--vms-glass-bg-strong);
+    border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 8px;
     padding: 18px 20px;
     height: 100%;
@@ -679,7 +1008,7 @@ body.vms-static .main-sidebar {
 }
 .vms-role-tile .vms-role-tile-label {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--vms-text-muted);
 }
 .vms-role-tile .vms-role-tile-value {
     font-size: 26px;
@@ -689,8 +1018,8 @@ body.vms-static .main-sidebar {
 
 /* Mechanic task / progress / completed cards */
 .vms-task-card {
-    background: #fff;
-    border: 1px solid #e5e7eb;
+    background: var(--vms-glass-bg-strong);
+    border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 8px;
     padding: 16px 18px;
     margin-bottom: 12px;
@@ -698,10 +1027,10 @@ body.vms-static .main-sidebar {
 .vms-task-card-title {
     font-size: 16px;
     font-weight: 700;
-    color: #111827;
+    color: var(--vms-text);
 }
 .vms-task-card-meta {
-    color: #6b7280;
+    color: var(--vms-text-muted);
     font-size: 13px;
 }
 .vms-task-card .vms-task-actions {
@@ -712,8 +1041,8 @@ body.vms-static .main-sidebar {
 
 /* Vehicle card (customer + admin) */
 .vms-vehicle-card {
-    background: #fff;
-    border: 1px solid #e5e7eb;
+    background: var(--vms-glass-bg-strong);
+    border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 8px;
     padding: 18px 20px;
     margin-bottom: 14px;
@@ -721,35 +1050,35 @@ body.vms-static .main-sidebar {
 .vms-vehicle-card-title {
     font-size: 16px;
     font-weight: 700;
-    color: #111827;
+    color: var(--vms-text);
 }
 .vms-vehicle-card-meta {
-    color: #6b7280;
+    color: var(--vms-text-muted);
     font-size: 13px;
 }
 .vms-service-block {
-    background: #f9fafb;
+    background: rgba(15, 23, 42, 0.55);
     border-radius: 6px;
     padding: 10px 14px;
 }
 .vms-service-block-label {
     font-size: 11px;
-    color: #6b7280;
+    color: var(--vms-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-weight: 600;
     margin-bottom: 2px;
 }
 .vms-service-block-value {
-    color: #111827;
+    color: var(--vms-text);
     font-weight: 600;
     font-size: 14px;
 }
 
 /* Footer info cards (User Management) */
 .vms-info-card {
-    background: #fff;
-    border: 1px solid #e5e7eb;
+    background: var(--vms-glass-bg-strong);
+    border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 8px;
     padding: 16px;
     height: 100%;
@@ -758,13 +1087,13 @@ body.vms-static .main-sidebar {
     font-weight: 700;
     margin-bottom: 8px;
     font-size: 14px;
-    color: #111827;
+    color: var(--vms-text);
 }
 .vms-info-card ul {
     padding-left: 18px;
     margin: 0;
     font-size: 13px;
-    color: #4b5563;
+    color: rgba(226, 232, 240, 0.70);
 }
 .vms-info-card ul li { margin-bottom: 4px; }
 
@@ -778,10 +1107,10 @@ body.vms-static .main-sidebar {
     left: 0;
     right: 0;
     top: calc(100% + 4px);
-    background: #ffffff;
-    border: 1px solid #d1d5db;
+    background: rgba(15, 23, 42, 0.92);
+    border: 1px solid rgba(148, 163, 184, 0.18);
     border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--vms-shadow-2);
     z-index: 1080;
     max-height: 320px;
     overflow-y: auto;
@@ -792,21 +1121,21 @@ body.vms-static .main-sidebar {
     justify-content: space-between;
     width: 100%;
     text-align: left;
-    background: #ffffff;
+    background: transparent;
     border: 0;
     padding: 8px 12px;
     gap: 12px;
     cursor: pointer;
-    border-bottom: 1px solid #f3f4f6;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.10);
 }
 .vms-suggest-item:last-child { border-bottom: 0; }
 .vms-suggest-item:hover,
-.vms-suggest-item.is-active { background: #f3f4f6; }
+.vms-suggest-item.is-active { background: rgba(29, 78, 216, 0.14); }
 .vms-suggest-text { display: flex; flex-direction: column; min-width: 0; }
-.vms-suggest-primary { font-weight: 600; color: #111827; font-size: 13px; }
-.vms-suggest-secondary { color: #6b7280; font-size: 12px; }
-.vms-suggest-meta { color: #6b7280; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; flex-shrink: 0; }
-.vms-suggest-empty { padding: 10px 12px; color: #6b7280; font-size: 12px; text-align: center; }
+.vms-suggest-primary { font-weight: 600; color: rgba(255, 255, 255, 0.92); font-size: 13px; }
+.vms-suggest-secondary { color: rgba(226, 232, 240, 0.70); font-size: 12px; }
+.vms-suggest-meta { color: rgba(226, 232, 240, 0.60); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; flex-shrink: 0; }
+.vms-suggest-empty { padding: 10px 12px; color: rgba(226, 232, 240, 0.70); font-size: 12px; text-align: center; }
 
 /* =====================================================================
    Mechanic UI utilities (used across pages + modals)
@@ -850,11 +1179,11 @@ body.vms-static .main-sidebar {
 .vms-btn-dark:hover { background: #1f2937; border-color: #1f2937; color: #ffffff; }
 
 .vms-btn-secondary {
-    background: #ffffff;
-    border-color: #d1d5db;
-    color: #111827;
+    background: rgba(15, 23, 42, 0.65);
+    border-color: rgba(148, 163, 184, 0.22);
+    color: rgba(255, 255, 255, 0.88);
 }
-.vms-btn-secondary:hover { background: #f9fafb; color: #111827; }
+.vms-btn-secondary:hover { background: rgba(15, 23, 42, 0.80); color: rgba(255, 255, 255, 0.92); }
 
 .vms-btn-blue   { background: #2563eb; border-color: #2563eb; color: #fff; }
 .vms-btn-blue:hover   { background: #1d4ed8; border-color: #1d4ed8; color: #fff; }
@@ -911,7 +1240,7 @@ body.vms-static .main-sidebar {
     border-radius: 6px;
     font-size: 11px;
     font-weight: 600;
-    background: #ffffff;
+    background: rgba(15, 23, 42, 0.55);
     border: 1px solid currentColor;
     line-height: 1.2;
 }
@@ -927,26 +1256,28 @@ body.vms-static .main-sidebar {
     display: block;
     width: 100%;
     padding: 8px 12px;
-    border: 1px solid #d1d5db;
+    border: 1px solid rgba(148, 163, 184, 0.22);
     border-radius: 6px;
-    background: #ffffff;
-    color: #111827;
+    background: rgba(15, 23, 42, 0.55);
+    color: rgba(255, 255, 255, 0.90);
     font-size: 13px;
     line-height: 1.4;
 }
+.vms-input::placeholder,
+.vms-textarea::placeholder { color: rgba(226, 232, 240, 0.55); }
 .vms-textarea { min-height: 88px; resize: vertical; }
 .vms-input:focus,
 .vms-select:focus,
 .vms-textarea:focus {
     outline: none;
-    border-color: #6b7280;
-    box-shadow: 0 0 0 2px rgba(107,114,128,0.15);
+    border-color: rgba(147, 197, 253, 0.60);
+    box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.22);
 }
 .vms-label {
     display: block;
     font-size: 12px;
     font-weight: 600;
-    color: #374151;
+    color: rgba(226, 232, 240, 0.80);
     margin-bottom: 4px;
 }
 .vms-required { color: #dc2626; margin-left: 2px; }
@@ -1013,8 +1344,8 @@ body.vms-static .main-sidebar {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px 24px;
-    background: #f9fafb;
-    border: 1px solid #e5e7eb;
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 8px;
     padding: 14px 16px;
     margin-bottom: 14px;
@@ -1025,13 +1356,13 @@ body.vms-static .main-sidebar {
 }
 .vms-info-cell-label {
     font-size: 11px;
-    color: #6b7280;
+    color: rgba(226, 232, 240, 0.65);
     margin-bottom: 2px;
 }
 .vms-info-cell-value {
     font-size: 13px;
     font-weight: 600;
-    color: #111827;
+    color: rgba(255, 255, 255, 0.92);
 }
 
 /* Stacked info card with right-aligned value rows (Vehicle Information etc.) */
@@ -1042,29 +1373,30 @@ body.vms-static .main-sidebar {
     font-size: 13px;
 }
 .vms-info-row + .vms-info-row { border-top: 1px solid #f3f4f6; }
-.vms-info-row .lbl { color: #6b7280; }
-.vms-info-row .val { color: #111827; font-weight: 600; }
+.vms-info-row + .vms-info-row { border-top: 1px solid rgba(148, 163, 184, 0.10); }
+.vms-info-row .lbl { color: rgba(226, 232, 240, 0.65); }
+.vms-info-row .val { color: rgba(255, 255, 255, 0.92); font-weight: 600; }
 
 /* Section title + sublabel (modal sections) */
 .vms-section-title {
     font-weight: 700;
-    color: #111827;
+    color: rgba(255, 255, 255, 0.92);
     font-size: 14px;
     margin: 14px 0 8px;
 }
 .vms-section-sub {
-    color: #6b7280;
+    color: rgba(226, 232, 240, 0.70);
     font-size: 12px;
     margin: -4px 0 10px;
 }
 
 /* Bullet list with subtle background */
 .vms-bullet-card {
-    background: #f9fafb;
-    border: 1px solid #e5e7eb;
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 8px;
     padding: 12px 16px 12px 32px;
-    color: #374151;
+    color: rgba(255, 255, 255, 0.88);
     font-size: 13px;
 }
 .vms-bullet-card ul { margin: 0; padding-left: 0; list-style: disc; }
@@ -1075,27 +1407,27 @@ body.vms-static .main-sidebar {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    background: #f9fafb;
-    border: 1px solid #e5e7eb;
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 8px;
     padding: 10px 14px;
     font-size: 13px;
     margin-bottom: 8px;
 }
 .vms-row-line:last-child { margin-bottom: 0; }
-.vms-row-line .row-name { color: #111827; font-weight: 600; }
-.vms-row-line .row-sub  { color: #6b7280; font-size: 11px; margin-top: 2px; }
-.vms-row-line .row-amt  { color: #111827; font-weight: 700; white-space: nowrap; padding-left: 12px; }
+.vms-row-line .row-name { color: rgba(255, 255, 255, 0.92); font-weight: 600; }
+.vms-row-line .row-sub  { color: rgba(226, 232, 240, 0.65); font-size: 11px; margin-top: 2px; }
+.vms-row-line .row-amt  { color: rgba(255, 255, 255, 0.92); font-weight: 700; white-space: nowrap; padding-left: 12px; }
 
 .vms-row-total {
-    background: #f3f4f6;
-    border: 1px solid #e5e7eb;
+    background: rgba(148, 163, 184, 0.10);
+    border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 8px;
     padding: 10px 14px;
     display: flex;
     justify-content: space-between;
     font-weight: 700;
-    color: #111827;
+    color: rgba(255, 255, 255, 0.92);
     font-size: 13px;
     margin-top: 8px;
 }
@@ -1152,7 +1484,7 @@ body.vms-static .main-sidebar {
 
 /* Generic page subtitle (small gray under H1) */
 .vms-subtitle {
-    color: #6b7280;
+    color: rgba(226, 232, 240, 0.70);
     font-size: 13px;
     margin-top: -8px;
     margin-bottom: 16px;
@@ -1165,7 +1497,7 @@ body.vms-static .main-sidebar {
 .vms-perf-list {
     margin: 0;
     padding-left: 18px;
-    color: #374151;
+    color: rgba(255, 255, 255, 0.88);
     font-size: 13px;
 }
 .vms-perf-list li { margin-bottom: 4px; }
@@ -1174,7 +1506,7 @@ body.vms-static .main-sidebar {
 .vms-modal-title {
     font-weight: 700;
     font-size: 18px;
-    color: #111827;
+    color: rgba(255, 255, 255, 0.92);
     margin: 0;
 }
 .vms-modal-close {
@@ -1189,4 +1521,4 @@ body.vms-static .main-sidebar {
 .vms-modal-close:hover { color: #4b5563; }
 
 /* Slim h3 inside modal for subsections */
-.vms-h3 { font-weight: 700; color: #111827; font-size: 13px; margin: 14px 0 6px; }
+.vms-h3 { font-weight: 700; color: rgba(255, 255, 255, 0.92); font-size: 13px; margin: 14px 0 6px; }

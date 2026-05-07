@@ -5,7 +5,7 @@
     <ul class="navbar-nav">
         <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ route('dashboard') }}" class="nav-link">
-                {{ __('Vehicle Maintenance System') }}
+                {{ config('app.name') }}
                 @php
                     $roleLabel = $u->isAdmin() ? 'ADMIN' : ($u->isMechanic() ? 'SENIOR MECHANIC' : 'CUSTOMER');
                     $roleClass = $u->isAdmin() ? 'badge badge-danger' : ($u->isMechanic() ? 'badge badge-primary' : 'badge badge-secondary');

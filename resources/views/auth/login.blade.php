@@ -1,4 +1,10 @@
 <x-guest-layout>
+    @if (session('status'))
+        <div class="alert alert-info">
+            {{ session('status') }}
+        </div>
+    @endif
+
     <p class="login-box-msg">Sign in to your account</p>
 
     <form method="POST" action="{{ route('login') }}">
@@ -34,7 +40,7 @@
                 </div>
             </div>
             <div class="col-5">
-                <button type="submit" class="btn btn-dark btn-block">
+                <button type="submit" class="btn btn-primary btn-block">
                     <i class="fas fa-sign-in-alt mr-1"></i> Sign In
                 </button>
             </div>

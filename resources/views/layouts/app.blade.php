@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Vehicle Maintenance System') }}</title>
+    <title>{{ config('app.name') }}</title>
 
+    @include('layouts.partials.vms-fonts')
     <link rel="stylesheet" href="{{ asset('vehicle-ref/plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vehicle-ref/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vehicle-ref/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
@@ -46,12 +47,12 @@
 @endphp
 <body class="hold-transition layout-fixed vms-static">
 <div class="wrapper">
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand navbar-dark bg-primary">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item d-none d-sm-flex align-items-center mr-2 text-right">
                 <div class="lh-1">
-                    <div class="font-weight-bold text-dark">{{ $u->name }}</div>
-                    <div class="small text-muted">{{ strtolower($u->roleLabel()) }}</div>
+                    <div class="font-weight-bold text-white">{{ $u->name }}</div>
+                    <div class="small text-white-50">{{ strtolower($u->roleLabel()) }}</div>
                 </div>
             </li>
             <li class="nav-item">
@@ -60,7 +61,7 @@
             <li class="nav-item ml-2">
                 <form method="POST" action="{{ route('logout') }}" class="form-inline">
                     @csrf
-                    <button type="submit" class="btn btn-default btn-sm">
+                    <button type="submit" class="btn btn-outline-light btn-sm">
                         <i class="fas fa-sign-out-alt mr-1"></i> Logout
                     </button>
                 </form>
@@ -68,10 +69,10 @@
         </ul>
     </nav>
 
-    <aside class="main-sidebar sidebar-light elevation-1">
+    <aside class="main-sidebar elevation-1">
         <div class="vms-sidebar-brand">
             <span class="vms-brand-icon mr-2"><i class="fas {{ $brandIcon }}"></i></span>
-            <span class="vms-brand-text">Vehicle Maintenance System</span>
+            <span class="vms-brand-text">{{ config('app.name') }}</span>
             <span class="badge {{ $roleBadgeClass }} ml-2 vms-role-badge">{{ $u->roleBadgeText() }}</span>
         </div>
         <div class="sidebar">

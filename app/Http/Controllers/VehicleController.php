@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Vehicle;
+use App\Http\Requests\StoreVehicleRequest;
+use App\Http\Requests\UpdateVehicleRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -67,27 +69,10 @@ class VehicleController extends Controller
         return view('vehicles.create', compact('owners'));
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(StoreVehicleRequest $request): RedirectResponse
     {
         $this->authorize('create', Vehicle::class);
-
-        $rules = [
-            'make' => ['required', 'string', 'max:100'],
-            'model' => ['required', 'string', 'max:100'],
-            'year' => ['required', 'integer', 'min:1900', 'max:'.(date('Y') + 1)],
-            'license_plate' => ['required', 'string', 'max:32'],
-            'type' => ['nullable', 'string', 'max:50'],
-            'mileage' => ['nullable', 'integer', 'min:0'],
-            'color' => ['nullable', 'string', 'max:50'],
-            'vin' => ['nullable', 'string', 'max:64'],
-            'notes' => ['nullable', 'string', 'max:2000'],
-        ];
-
-        if ($request->user()->isAdmin()) {
-            $rules['user_id'] = ['required', 'exists:users,id'];
-        }
-
-        $validated = $request->validate($rules);
+        $validated = $request->validated();
 
         $userId = $request->user()->isAdmin()
             ? (int) $validated['user_id']
@@ -135,27 +120,10 @@ class VehicleController extends Controller
         return view('modals.vehicles.edit', $view->getData());
     }
 
-    public function update(Request $request, Vehicle $vehicle): RedirectResponse
+    public function update(UpdateVehicleRequest $request, Vehicle $vehicle): RedirectResponse
     {
         $this->authorize('update', $vehicle);
-
-        $rules = [
-            'make' => ['required', 'string', 'max:100'],
-            'model' => ['required', 'string', 'max:100'],
-            'year' => ['required', 'integer', 'min:1900', 'max:'.(date('Y') + 1)],
-            'license_plate' => ['required', 'string', 'max:32'],
-            'type' => ['nullable', 'string', 'max:50'],
-            'mileage' => ['nullable', 'integer', 'min:0'],
-            'color' => ['nullable', 'string', 'max:50'],
-            'vin' => ['nullable', 'string', 'max:64'],
-            'notes' => ['nullable', 'string', 'max:2000'],
-        ];
-
-        if ($request->user()->isAdmin()) {
-            $rules['user_id'] = ['required', 'exists:users,id'];
-        }
-
-        $validated = $request->validate($rules);
+        $validated = $request->validated();
 
         if ($request->user()->isAdmin()) {
             $validated['user_id'] = (int) $validated['user_id'];

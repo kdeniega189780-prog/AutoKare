@@ -46,7 +46,7 @@
     </div>
 
     <div class="vms-section-title">{{ __('Vehicle Information') }}</div>
-    <div class="vms-card vms-card-pad" style="background:#f9fafb;">
+    <div class="vms-card vms-card-pad vms-surface-subtle">
         <div class="vms-info-row">
             <span class="lbl">{{ __('Make/Model:') }}</span>
             <span class="val">{{ $schedule->vehicle?->displayLabel() }}</span>
@@ -66,7 +66,7 @@
     </div>
 
     <div class="vms-section-title">{{ __('Service Instructions') }}</div>
-    <div class="vms-card vms-card-pad" style="background:#f9fafb; font-size:13px; color:#374151;">
+    <div class="vms-card vms-card-pad vms-surface-subtle" style="font-size:13px; color:#374151;">
         {{ $schedule->service_instructions ?: $schedule->description ?: $schedule->task_description }}
     </div>
 
@@ -84,7 +84,7 @@
     @endif
 
     <div class="vms-section-title">{{ __('Customer Contact') }}</div>
-    <div class="vms-card vms-card-pad" style="background:#f9fafb; font-size:13px;">
+    <div class="vms-card vms-card-pad vms-surface-subtle" style="font-size:13px;">
         <div><strong>{{ __('Name:') }}</strong> {{ $schedule->vehicle?->owner?->name ?? '—' }}</div>
         <div><strong>{{ __('Phone:') }}</strong> {{ $schedule->vehicle?->owner?->phone ?? '—' }}</div>
         <div><strong>{{ __('Email:') }}</strong> {{ $schedule->vehicle?->owner?->email ?? '—' }}</div>

@@ -6,32 +6,32 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <div class="small-box bg-info">
-                <div class="inner">
-                    <h3>{{ $vehicleCount }}</h3>
-                    <p>Total Vehicles</p>
+    <div class="vms-icon-tiles mb-3">
+        <div class="vms-icon-tile">
+            <div class="vms-icon-tile-left">
+                <span class="vms-icon-tile-icon vms-it-blue"><i class="fas fa-car"></i></span>
+                <div class="vms-icon-tile-text">
+                    <div class="vms-icon-tile-label">Total Vehicles</div>
+                    <div class="vms-icon-tile-value">{{ $vehicleCount }}</div>
                 </div>
-                <div class="icon"><i class="fas fa-car"></i></div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="small-box bg-success">
-                <div class="inner">
-                    <h3>{{ $pendingSchedules }}</h3>
-                    <p>Upcoming Maintenance</p>
+        <div class="vms-icon-tile">
+            <div class="vms-icon-tile-left">
+                <span class="vms-icon-tile-icon vms-it-green"><i class="fas fa-calendar-check"></i></span>
+                <div class="vms-icon-tile-text">
+                    <div class="vms-icon-tile-label">Upcoming Maintenance</div>
+                    <div class="vms-icon-tile-value">{{ $pendingSchedules }}</div>
                 </div>
-                <div class="icon"><i class="fas fa-calendar-check"></i></div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="small-box bg-danger">
-                <div class="inner">
-                    <h3>{{ $overdueSchedules }}</h3>
-                    <p>Overdue</p>
+        <div class="vms-icon-tile">
+            <div class="vms-icon-tile-left">
+                <span class="vms-icon-tile-icon vms-it-red"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="vms-icon-tile-text">
+                    <div class="vms-icon-tile-label">Overdue</div>
+                    <div class="vms-icon-tile-value">{{ $overdueSchedules }}</div>
                 </div>
-                <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
             </div>
         </div>
     </div>

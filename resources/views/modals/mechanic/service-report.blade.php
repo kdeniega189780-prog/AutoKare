@@ -146,7 +146,7 @@
 
     @if ($r?->notes)
         <div class="vms-section-title">{{ __('Mechanic Notes') }}</div>
-        <div class="vms-card vms-card-pad" style="background:#f9fafb; font-size:13px; color:#374151; white-space:pre-wrap;">{{ $r->notes }}</div>
+        <div class="vms-card vms-card-pad vms-surface-subtle" style="font-size:13px; color:#374151; white-space:pre-wrap;">{{ $r->notes }}</div>
     @endif
 
     <div class="d-flex mt-4" style="gap:10px;">

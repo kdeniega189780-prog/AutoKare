@@ -3,6 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', config('app.name', 'Laravel'))</title>
+    @include('layouts.partials.vms-fonts')
     <link rel="stylesheet" href="{{ $refAsset }}/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="{{ $refAsset }}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <link rel="stylesheet" href="{{ $refAsset }}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">

@@ -10,7 +10,7 @@
                      style="width: 56px; height: 56px; background: #111827; border-color: #111827;">
                     <i class="far fa-user text-white" style="font-size: 22px;"></i>
                 </div>
-                <div class="font-weight-bold" style="font-size: 15px;">{{ __('Vehicle Maintenance System') }}</div>
+                <div class="font-weight-bold" style="font-size: 15px;">{{ config('app.name') }}</div>
                 <div class="text-muted" style="font-size: 12px;">{{ __('Sign in to continue') }}</div>
             </div>
 

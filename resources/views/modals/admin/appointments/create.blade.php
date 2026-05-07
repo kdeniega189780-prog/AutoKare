@@ -6,6 +6,15 @@
 <form method="POST" action="{{ route('schedules.store') }}">
     @csrf
     <div class="modal-body">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0 pl-3">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="card card-outline card-info mb-3">
             <div class="card-header py-2">
                 <h3 class="card-title font-weight-bold text-info">

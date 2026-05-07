@@ -10,6 +10,33 @@
         const bodyId = 'vms-modal-body';
         const titleId = 'vms-modal-title';
 
+        function setHtmlAndRunScripts(container, html) {
+            if (!container) return;
+
+            // When injecting HTML with innerHTML, <script> tags do not execute.
+            // Extract them, inject DOM, then recreate scripts so they run.
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = html;
+
+            const scripts = Array.from(wrapper.querySelectorAll('script'));
+            scripts.forEach((s) => s.parentNode && s.parentNode.removeChild(s));
+
+            container.innerHTML = wrapper.innerHTML;
+
+            scripts.forEach((oldScript) => {
+                const newScript = document.createElement('script');
+                Array.from(oldScript.attributes).forEach((attr) => {
+                    newScript.setAttribute(attr.name, attr.value);
+                });
+
+                if (!newScript.src) {
+                    newScript.text = oldScript.text || oldScript.textContent || '';
+                }
+
+                container.appendChild(newScript);
+            });
+        }
+
         function setLoading(title) {
             const $title = document.getElementById(titleId);
             const $body = document.getElementById(bodyId);
@@ -42,7 +69,7 @@
 
             const html = await res.text();
             const $body = document.getElementById(bodyId);
-            if ($body) $body.innerHTML = html;
+            setHtmlAndRunScripts($body, html);
         }
 
         function showModal() {

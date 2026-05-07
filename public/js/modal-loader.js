@@ -14,6 +14,35 @@
             return;
         }
 
+        function setHtmlAndRunScripts($container, html) {
+            // IMPORTANT: When inserting HTML via .html()/innerHTML, <script> tags do not execute.
+            // We extract scripts, inject the remaining DOM, then re-create scripts so they run.
+            var wrapper = document.createElement('div');
+            wrapper.innerHTML = html;
+
+            var scripts = Array.prototype.slice.call(wrapper.querySelectorAll('script'));
+            scripts.forEach(function (s) { s.parentNode && s.parentNode.removeChild(s); });
+
+            $container.html(wrapper.innerHTML);
+
+            scripts.forEach(function (oldScript) {
+                var newScript = document.createElement('script');
+                // Copy attributes (src, type, etc.)
+                for (var i = 0; i < oldScript.attributes.length; i++) {
+                    var attr = oldScript.attributes[i];
+                    newScript.setAttribute(attr.name, attr.value);
+                }
+
+                // Inline script content
+                if (!newScript.src) {
+                    newScript.text = oldScript.text || oldScript.textContent || '';
+                }
+
+                // Append into modal so it has access to the injected DOM
+                $container[0].appendChild(newScript);
+            });
+        }
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
@@ -31,7 +60,7 @@
                 type: 'GET',
                 dataType: 'html'
             }).done(function (html) {
-                $body.html(html);
+                setHtmlAndRunScripts($body, html);
             }).fail(function (xhr) {
                 $body.html('<div class="modal-header"><h5 class="modal-title text-danger">Error</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body"><p>Failed to load modal (' + xhr.status + ').</p></div>');
             });

@@ -6,6 +6,16 @@
 <form method="POST" action="{{ route('schedules.store') }}">
     @csrf
     <div class="modal-body">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0 pl-3">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <div class="form-group">
             <label>Vehicle <span class="text-danger">*</span></label>
             <select name="vehicle_id" class="form-control" required>
@@ -13,6 +23,7 @@
                     <option value="{{ $v->id }}" @selected(($vehicle?->id ?? null) === $v->id)>{{ $v->displayLabel() }}</option>
                 @endforeach
             </select>
+            @error('vehicle_id')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
         </div>
 
         <div class="form-group">
@@ -23,12 +34,14 @@
                     <option value="{{ $svc }}">{{ $svc }}</option>
                 @endforeach
             </select>
+            @error('task_description')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
         </div>
 
         <div class="row">
             <div class="form-group col-md-6">
                 <label>Date <span class="text-danger">*</span></label>
                 <input type="date" name="scheduled_date" class="form-control" required>
+                @error('scheduled_date')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
             </div>
             <div class="form-group col-md-6">
                 <label>Time <span class="text-danger">*</span></label>
@@ -38,6 +51,7 @@
                         <option value="{{ $t }}">{{ \Carbon\Carbon::createFromFormat('H:i', $t)->format('g:i A') }}</option>
                     @endforeach
                 </select>
+                @error('scheduled_time')<div class="text-danger small mt-1">{{ $message }}</div>@enderror
             </div>
         </div>
 

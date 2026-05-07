@@ -67,4 +67,25 @@
             </div>
         </div>
     @endforelse
+
+    @if ($errors->any())
+        <script>
+            (function () {
+                // If booking validation fails, reopen the booking modal so the user can see/fix errors.
+                var url = @json(route('customer.appointments.bookModal'));
+                if (window.vmsOpenModal) {
+                    window.vmsOpenModal(url, 'lg');
+                } else if (window.jQuery) {
+                    // Fallback: trigger the modal and load its content (layout scripts handle click too).
+                    window.jQuery('#vms-modal').modal('show');
+                    fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'text/html' }, credentials: 'same-origin' })
+                        .then(function (r) { return r.text(); })
+                        .then(function (html) {
+                            var body = document.getElementById('vms-modal-body') || document.getElementById('vms-modal-content');
+                            if (body) body.innerHTML = html;
+                        });
+                }
+            })();
+        </script>
+    @endif
 </x-app-layout>

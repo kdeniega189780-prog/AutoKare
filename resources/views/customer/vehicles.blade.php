@@ -51,16 +51,22 @@
             </div>
 
             <div class="d-flex flex-wrap" style="gap:8px;">
-                @if ($v['overdue'])
-                    <button type="button" class="btn btn-danger"
-                            data-modal-url="{{ route('customer.vehicles.scheduleModal', $v['id']) }}">
-                        <i class="fas fa-calendar-plus mr-1"></i> Schedule Service Now
+                @if (!empty($v['has_active_appointment']) && $v['has_active_appointment'])
+                    <button type="button" class="btn btn-secondary" disabled>
+                        <i class="fas fa-calendar-check mr-1"></i> Appointment Scheduled
                     </button>
                 @else
-                    <button type="button" class="btn btn-primary"
-                            data-modal-url="{{ route('customer.vehicles.scheduleModal', $v['id']) }}">
-                        <i class="fas fa-calendar-plus mr-1"></i> Schedule Service
-                    </button>
+                    @if ($v['overdue'])
+                        <button type="button" class="btn btn-danger"
+                                data-modal-url="{{ route('customer.vehicles.scheduleModal', $v['id']) }}">
+                            <i class="fas fa-calendar-plus mr-1"></i> Schedule Service Now
+                        </button>
+                    @else
+                        <button type="button" class="btn btn-primary"
+                                data-modal-url="{{ route('customer.vehicles.scheduleModal', $v['id']) }}">
+                            <i class="fas fa-calendar-plus mr-1"></i> Schedule Service
+                        </button>
+                    @endif
                 @endif
                 <button type="button" class="btn btn-outline-secondary"
                         data-modal-url="{{ route('customer.vehicles.viewModal', $v['id']) }}">
@@ -76,4 +82,28 @@
             </div>
         </div>
     @endforelse
+
+    @if ($errors->any() && old('vehicle_id'))
+        <script>
+            (function () {
+                var vid = @json(old('vehicle_id'));
+                if (!vid) return;
+
+                var url = @json(route('customer.vehicles.scheduleModal', ['vehicle' => 'VID_PLACEHOLDER']));
+                url = url.replace('VID_PLACEHOLDER', encodeURIComponent(vid));
+
+                if (window.vmsOpenModal) {
+                    window.vmsOpenModal(url, 'lg');
+                } else if (window.jQuery) {
+                    window.jQuery('#vms-modal').modal('show');
+                    fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest', 'Accept': 'text/html' }, credentials: 'same-origin' })
+                        .then(function (r) { return r.text(); })
+                        .then(function (html) {
+                            var body = document.getElementById('vms-modal-body') || document.getElementById('vms-modal-content');
+                            if (body) body.innerHTML = html;
+                        });
+                }
+            })();
+        </script>
+    @endif
 </x-app-layout>

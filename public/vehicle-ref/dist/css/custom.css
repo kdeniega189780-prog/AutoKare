@@ -1143,8 +1143,8 @@ body.vms-static .main-sidebar {
 
 /* Generic surface card */
 .vms-card {
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
+    background: var(--vms-glass-bg-strong);
+    border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 10px;
 }
 .vms-card-pad { padding: 18px 20px; }
@@ -1202,9 +1202,9 @@ body.vms-static .main-sidebar {
     border-radius: 6px;
     font-size: 11px;
     font-weight: 600;
-    background: #dbeafe;
-    color: #1e40af;
-    border: 1px solid #bfdbfe;
+    background: rgba(29, 78, 216, 0.18);
+    color: rgba(191, 219, 254, 0.95);
+    border: 1px solid rgba(147, 197, 253, 0.32);
 }
 .vms-pill-solid-green {
     display: inline-flex;
@@ -1213,9 +1213,9 @@ body.vms-static .main-sidebar {
     border-radius: 6px;
     font-size: 11px;
     font-weight: 600;
-    background: #dcfce7;
-    color: #166534;
-    border: 1px solid #bbf7d0;
+    background: rgba(22, 163, 74, 0.18);
+    color: rgba(187, 247, 208, 0.95);
+    border: 1px solid rgba(134, 239, 172, 0.30);
 }
 .vms-pill-solid-yellow {
     display: inline-flex;
@@ -1224,9 +1224,9 @@ body.vms-static .main-sidebar {
     border-radius: 6px;
     font-size: 11px;
     font-weight: 600;
-    background: #fef3c7;
-    color: #92400e;
-    border: 1px solid #fde68a;
+    background: rgba(217, 119, 6, 0.18);
+    color: rgba(253, 230, 138, 0.95);
+    border: 1px solid rgba(252, 211, 77, 0.30);
 }
 
 /* Outlined pills used for IN PROGRESS / High Priority etc. */
@@ -1465,6 +1465,32 @@ body.vms-static .main-sidebar {
     border: 1px solid;
     height: 100%;
 }
+
+/* Summary tiles: icon + number only (Team Reports) */
+.vms-summary-tile.vms-icon-only {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+}
+.vms-summary-tile.vms-icon-only .vms-st-head,
+.vms-summary-tile.vms-icon-only .vms-st-sub { display: none; }
+.vms-summary-tile.vms-icon-only .vms-st-value {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 800;
+}
+.vms-summary-tile.vms-icon-only .vms-st-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.16);
+    color: rgba(255, 255, 255, 0.92);
+}
 .vms-summary-tile .vms-st-head {
     display: flex;
     align-items: center;
@@ -1475,12 +1501,12 @@ body.vms-static .main-sidebar {
 }
 .vms-summary-tile .vms-st-value { font-size: 28px; font-weight: 700; line-height: 1.1; }
 .vms-summary-tile .vms-st-sub { font-size: 11px; margin-top: 4px; opacity: 0.85; }
-.vms-summary-tile.vms-st-blue   { background: #eff6ff; border-color: #bfdbfe; color: #1e3a8a; }
-.vms-summary-tile.vms-st-green  { background: #ecfdf5; border-color: #a7f3d0; color: #065f46; }
-.vms-summary-tile.vms-st-orange { background: #fff7ed; border-color: #fed7aa; color: #9a3412; }
-.vms-summary-tile.vms-st-purple { background: #f5f3ff; border-color: #ddd6fe; color: #5b21b6; }
-.vms-summary-tile.vms-st-gray   { background: #f9fafb; border-color: #e5e7eb; color: #1f2937; }
-.vms-summary-tile.vms-st-red    { background: #fef2f2; border-color: #fecaca; color: #7f1d1d; }
+.vms-summary-tile.vms-st-blue   { background: rgba(37, 99, 235, 0.14); border-color: rgba(147, 197, 253, 0.26); color: rgba(255,255,255,0.92); }
+.vms-summary-tile.vms-st-green  { background: rgba(22, 163, 74, 0.14); border-color: rgba(134, 239, 172, 0.24); color: rgba(255,255,255,0.92); }
+.vms-summary-tile.vms-st-orange { background: rgba(217, 119, 6, 0.14); border-color: rgba(253, 230, 138, 0.24); color: rgba(255,255,255,0.92); }
+.vms-summary-tile.vms-st-purple { background: rgba(124, 58, 237, 0.14); border-color: rgba(196, 181, 253, 0.24); color: rgba(255,255,255,0.92); }
+.vms-summary-tile.vms-st-gray   { background: rgba(148, 163, 184, 0.10); border-color: rgba(148, 163, 184, 0.18); color: rgba(255,255,255,0.92); }
+.vms-summary-tile.vms-st-red    { background: rgba(220, 38, 38, 0.14); border-color: rgba(254, 202, 202, 0.24); color: rgba(255,255,255,0.92); }
 
 /* Generic page subtitle (small gray under H1) */
 .vms-subtitle {

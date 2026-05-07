@@ -74,6 +74,18 @@ class MaintenanceScheduleController extends Controller
             abort(403);
         }
 
+        if ($request->user()->isOwner()) {
+            $hasActive = MaintenanceSchedule::where('vehicle_id', $validated['vehicle_id'])
+                ->whereIn('status', ['pending', 'in_progress'])
+                ->exists();
+
+            if ($hasActive) {
+                return back()
+                    ->withErrors(['vehicle_id' => 'This vehicle already has an active appointment.'])
+                    ->withInput();
+            }
+        }
+
         if (! empty($validated['mechanic_id'])) {
             $mechanic = User::find($validated['mechanic_id']);
             if (! $mechanic || ! $mechanic->isMechanic()) {

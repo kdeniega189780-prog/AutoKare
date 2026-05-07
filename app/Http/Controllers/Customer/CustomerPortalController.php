@@ -41,6 +41,9 @@ class CustomerPortalController extends Controller
             ->map(function (Vehicle $v) {
                 $completed = $v->maintenanceSchedules->where('status', 'completed')->sortByDesc('scheduled_at')->first();
                 $upcoming = $v->maintenanceSchedules->where('status', 'pending')->sortBy('scheduled_at')->first();
+                $hasActive = $v->maintenanceSchedules
+                    ->whereIn('status', ['pending', 'in_progress'])
+                    ->isNotEmpty();
 
                 $isOverdue = $upcoming && $upcoming->scheduled_at?->isPast();
 
@@ -53,6 +56,7 @@ class CustomerPortalController extends Controller
                     'status' => $isOverdue ? 'service_due' : 'good',
                     'overdue' => $isOverdue,
                     'overdue_date' => $upcoming?->scheduled_at?->format('Y-m-d'),
+                    'has_active_appointment' => $hasActive,
                 ];
             })
             ->values();
@@ -127,7 +131,7 @@ class CustomerPortalController extends Controller
         $appointments = MaintenanceSchedule::with('vehicle')
             ->whereIn('vehicle_id', $vehicleIds)
             ->whereIn('status', ['pending', 'in_progress'])
-            ->orderBy('scheduled_at')
+            ->orderByDesc('scheduled_at')
             ->get();
 
         $vehicles = Vehicle::query()

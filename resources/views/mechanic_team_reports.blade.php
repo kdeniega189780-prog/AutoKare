@@ -15,14 +15,20 @@
         <div class="row" style="margin:0 -6px;">
             <div class="col-md-4 px-2 mb-2">
                 <div class="vms-summary-tile vms-st-blue">
-                    <div class="vms-st-head">{{ __('Total Tasks') }}<i class="fas fa-wrench"></i></div>
+                    <div class="vms-st-head">
+                        {{ __('Total Tasks') }}
+                        <i class="fas fa-wrench"></i>
+                    </div>
                     <div class="vms-st-value">{{ $summary['total'] }}</div>
                     <div class="vms-st-sub">{{ __('↑ 12% from last week') }}</div>
                 </div>
             </div>
             <div class="col-md-4 px-2 mb-2">
                 <div class="vms-summary-tile vms-st-green">
-                    <div class="vms-st-head">{{ __('Completed') }}<i class="fas fa-check-circle"></i></div>
+                    <div class="vms-st-head">
+                        {{ __('Completed') }}
+                        <i class="fas fa-check-circle"></i>
+                    </div>
                     <div class="vms-st-value">{{ $summary['completed'] }}</div>
                     <div class="vms-st-sub">
                         @php $rate = $summary['total'] ? round(($summary['completed'] / $summary['total']) * 100) : 0; @endphp
@@ -32,28 +38,40 @@
             </div>
             <div class="col-md-4 px-2 mb-2">
                 <div class="vms-summary-tile vms-st-orange">
-                    <div class="vms-st-head">{{ __('In Progress') }}<i class="far fa-clock"></i></div>
+                    <div class="vms-st-head">
+                        {{ __('In Progress') }}
+                        <i class="far fa-clock"></i>
+                    </div>
                     <div class="vms-st-value">{{ $summary['in_progress'] }}</div>
                     <div class="vms-st-sub">{{ __('Being worked on') }}</div>
                 </div>
             </div>
             <div class="col-md-4 px-2 mb-2">
                 <div class="vms-summary-tile vms-st-purple">
-                    <div class="vms-st-head">{{ __('Assigned (Pending)') }}<i class="fas fa-info-circle"></i></div>
+                    <div class="vms-st-head">
+                        {{ __('Assigned (Pending)') }}
+                        <i class="fas fa-info-circle"></i>
+                    </div>
                     <div class="vms-st-value">{{ $summary['assigned'] }}</div>
                     <div class="vms-st-sub">{{ __('Not yet started') }}</div>
                 </div>
             </div>
             <div class="col-md-4 px-2 mb-2">
                 <div class="vms-summary-tile vms-st-gray">
-                    <div class="vms-st-head">{{ __('Avg. Time per Task') }}<i class="fas fa-chart-line"></i></div>
+                    <div class="vms-st-head">
+                        {{ __('Avg. Time per Task') }}
+                        <i class="fas fa-chart-line"></i>
+                    </div>
                     <div class="vms-st-value">{{ $summary['avg_time'] }}</div>
                     <div class="vms-st-sub">{{ __('↓ 0.5h improvement') }}</div>
                 </div>
             </div>
             <div class="col-md-4 px-2 mb-2">
                 <div class="vms-summary-tile vms-st-gray">
-                    <div class="vms-st-head">{{ __('Active Mechanics') }}<i class="fas fa-users"></i></div>
+                    <div class="vms-st-head">
+                        {{ __('Active Mechanics') }}
+                        <i class="fas fa-users"></i>
+                    </div>
                     <div class="vms-st-value">{{ $summary['active_mechanics'] }}</div>
                     <div class="vms-st-sub">{{ __('All available') }}</div>
                 </div>

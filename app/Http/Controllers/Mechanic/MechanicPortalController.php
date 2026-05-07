@@ -180,7 +180,12 @@ class MechanicPortalController extends Controller
     {
         $this->ensureOwn($schedule, $request);
         $schedule->load('vehicle.owner');
-        $teamMembers = User::where('role', 'mechanic')->orderBy('name')->get();
+        // Exclude mechanics that are currently on break from being selectable.
+        $teamMembers = User::query()
+            ->where('role', 'mechanic')
+            ->where('current_status', '!=', 'on_break')
+            ->orderBy('name')
+            ->get();
         return view('modals.mechanic.assign-task', compact('schedule', 'teamMembers'));
     }
 
@@ -239,9 +244,19 @@ class MechanicPortalController extends Controller
             'estimated_minutes' => ['nullable', 'integer', 'min:1', 'max:600'],
         ]);
 
+        $mechanic = User::findOrFail($validated['mechanic_id']);
+        if ($mechanic->current_status === 'on_break') {
+            return back()
+                ->withErrors(['mechanic_id' => 'This mechanic is currently on break.'])
+                ->withInput();
+        }
+
         $schedule->update([
             'assigned_mechanic_id' => $validated['mechanic_id'],
             'mechanic_id' => $validated['mechanic_id'],
+            // Make sure team lists refresh immediately (in-progress view relies on status).
+            'status' => 'in_progress',
+            'started_at' => $schedule->started_at ?? now(),
             'initial_notes' => $validated['initial_notes'] ?? $schedule->initial_notes,
             'estimated_minutes' => $validated['estimated_minutes'] ?? $schedule->estimated_minutes,
         ]);

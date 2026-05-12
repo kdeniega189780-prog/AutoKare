@@ -48,14 +48,14 @@ class AdminMaintenanceController extends Controller
 
     public function viewModal(MaintenanceSchedule $schedule): View
     {
-        $schedule->load(['vehicle', 'mechanic', 'serviceRecord']);
+        $schedule->load(['vehicle', 'mechanic', 'serviceRecord.parts.part']);
 
         return view('modals.admin.maintenance.view', compact('schedule'));
     }
 
     public function editModal(Request $request, MaintenanceSchedule $schedule): View
     {
-        $schedule->load(['vehicle', 'mechanic', 'serviceRecord']);
+        $schedule->load(['vehicle', 'mechanic', 'serviceRecord.parts.part']);
 
         $vehicles = Vehicle::query()->orderBy('make')->orderBy('model')->get();
         $mechanics = User::query()->where('role', 'mechanic')->orderBy('name')->get();

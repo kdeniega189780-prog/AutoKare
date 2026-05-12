@@ -135,7 +135,7 @@ class VehicleController extends Controller
 
         $vehicle->update($validated);
 
-        return redirect()->route('vehicles.show', $vehicle)->with('status', 'Vehicle updated.');
+        return redirect()->route('vehicles.index')->with('status', 'Vehicle updated.');
     }
 
     public function destroy(Vehicle $vehicle): RedirectResponse

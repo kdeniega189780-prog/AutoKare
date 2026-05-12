@@ -2,7 +2,9 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @include('layouts.adminlte.head')
 <body class="hold-transition login-page" style="background: #f3f4f6;">
-<div class="login-box" style="width: 420px;">
+@include('layouts.partials.public-navbar')
+
+<div class="login-box" style="width: 420px; margin-top: 4.5rem;">
     <div class="card shadow-sm" style="border-radius: 6px;">
         <div class="card-body p-4">
             <div class="text-center mb-4">

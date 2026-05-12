@@ -62,7 +62,7 @@
                         <span class="vms-icon-tile-icon vms-it-purple"><i class="fas fa-dollar-sign"></i></span>
                         <div class="vms-icon-tile-text">
                             <div class="vms-icon-tile-label">Total Revenue</div>
-                            <div class="vms-icon-tile-value">${{ number_format($totalRevenue, 0) }}</div>
+                            <div class="vms-icon-tile-value"><x-money :value="$totalRevenue" :decimals="0" /></div>
                         </div>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
                                 <tr>
                                     <td class="font-weight-bold text-dark">{{ $m['name'] }}</td>
                                     <td>{{ $m['completed'] }} tasks</td>
-                                    <td class="font-weight-bold">${{ number_format($m['revenue'], 0) }}</td>
+                                    <td class="font-weight-bold"><x-money :value="$m['revenue']" :decimals="0" /></td>
                                 </tr>
                             @empty
                                 <tr><td colspan="3" class="text-center text-muted py-3">No mechanic activity this month.</td></tr>

@@ -28,7 +28,7 @@
                             <td>{{ $r->task_description }}</td>
                             <td>{{ $r->completed_at?->format('Y-m-d') ?? $r->scheduled_at?->format('Y-m-d') }}</td>
                             <td>{{ $r->mechanic?->name ?? '—' }}</td>
-                            <td class="text-right font-weight-bold">${{ number_format($r->serviceRecord?->totalCost() ?? 0, 2) }}</td>
+                            <td class="text-right font-weight-bold"><x-money :value="$r->serviceRecord?->totalCost() ?? 0" :decimals="2" /></td>
                         </tr>
                     @empty
                         <tr><td colspan="5" class="text-center text-muted py-4">No completed services yet.</td></tr>

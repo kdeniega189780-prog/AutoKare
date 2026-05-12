@@ -55,7 +55,7 @@ class LoginRequest extends FormRequest
             Auth::logout();
 
             throw ValidationException::withMessages([
-                'email' => 'Your account is inactive or awaiting approval.',
+                'email' => 'Your account is inactive.',
             ]);
         }
 

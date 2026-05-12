@@ -89,12 +89,12 @@
                         <div class="row-sub">{{ $sub }}</div>
                     @endif
                 </div>
-                <div class="row-amt">${{ number_format($line->line_total, 2) }}</div>
+                <div class="row-amt"><x-money :value="$line->line_total" :decimals="2" /></div>
             </div>
         @endforeach
         <div class="vms-row-total">
             <span>{{ __('Total Parts:') }}</span>
-            <span>${{ number_format($partsTotal, 2) }}</span>
+            <span><x-money :value="$partsTotal" :decimals="2" /></span>
         </div>
     @else
         @php
@@ -109,12 +109,12 @@
                         <div class="row-name">{{ $p['name'] }}</div>
                         <div class="row-sub">{{ __('Qty:') }} {{ $p['qty'] }}</div>
                     </div>
-                    <div class="row-amt">${{ number_format($unit, 2) }}</div>
+                    <div class="row-amt"><x-money :value="$unit" :decimals="2" /></div>
                 </div>
             @endforeach
             <div class="vms-row-total">
                 <span>{{ __('Total Parts:') }}</span>
-                <span>${{ number_format($partsCost, 2) }}</span>
+                <span><x-money :value="$partsCost" :decimals="2" /></span>
             </div>
         @else
             <div class="text-muted small">{{ $r?->parts_used ?: __('No parts recorded.') }}</div>
@@ -124,7 +124,7 @@
     <div class="vms-section-title">{{ __('Labor') }}</div>
     <div class="vms-row-line">
         <div class="row-name">{{ __('Standard') }} {{ $schedule->task_description }} {{ __('Service') }}</div>
-        <div class="row-amt">${{ number_format((float) ($r?->labor_cost ?? 0), 2) }}</div>
+        <div class="row-amt"><x-money :value="$r?->labor_cost ?? 0" :decimals="2" /></div>
     </div>
 
     @if (count($recLines))
@@ -141,7 +141,7 @@
     <div class="vms-section-title">{{ __('Total Cost') }}</div>
     <div class="vms-total-bar">
         <span class="vms-total-bar-label">{{ __('Total:') }}</span>
-        <span class="vms-total-bar-value">${{ number_format((float) ($r?->totalCost() ?? 0), 2) }}</span>
+        <span class="vms-total-bar-value"><x-money :value="$r?->totalCost() ?? 0" :decimals="2" /></span>
     </div>
 
     @if ($r?->notes)

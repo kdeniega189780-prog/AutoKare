@@ -1,9 +1,24 @@
-<div class="modal-header">
-    <h5 class="modal-title">Vehicle Details</h5>
-    <button type="button" class="close" data-modal-close aria-label="Close"><span>&times;</span></button>
-</div>
+@php
+    $asPage = $asPage ?? false;
+@endphp
 
-<div class="modal-body">
+@if ($asPage)
+    <div class="vms-page-header mb-3">
+        <div>
+            <h1 class="vms-page-title">Vehicle Details</h1>
+        </div>
+        <a href="{{ route('vehicles.index') }}" class="btn btn-default">
+            <i class="fas fa-arrow-left mr-1"></i> Back to vehicles
+        </a>
+    </div>
+@else
+    <div class="modal-header">
+        <h5 class="modal-title">Vehicle Details</h5>
+        <button type="button" class="close" data-modal-close data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+    </div>
+@endif
+
+<div class="{{ $asPage ? 'p-3' : 'modal-body' }}">
     <div class="row">
         <div class="form-group col-md-12">
             <label>Vehicle Make &amp; Model</label>
@@ -40,6 +55,14 @@
     </div>
 </div>
 
-<div class="modal-footer">
-    <button type="button" class="btn btn-primary" data-modal-close>Close</button>
-</div>
+@if ($asPage)
+    <div class="p-3 border-top">
+        <a href="{{ route('vehicles.index') }}" class="btn btn-primary">
+            <i class="fas fa-arrow-left mr-1"></i> Back to vehicles
+        </a>
+    </div>
+@else
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-modal-close data-dismiss="modal">Close</button>
+    </div>
+@endif

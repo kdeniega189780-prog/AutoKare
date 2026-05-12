@@ -38,8 +38,7 @@ class RegisteredUserController extends Controller
         ]);
 
         $role = (string) $request->input('role', 'owner');
-        // All self-registered accounts require admin approval.
-        $status = 'inactive';
+        $status = 'active';
 
         $user = User::create([
             'name' => $request->name,
@@ -53,8 +52,7 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         return redirect()
-            ->route('register')
-            ->with('approval_pending', true)
-            ->with('status', 'Registration submitted. Your account is awaiting admin approval.');
+            ->route('login')
+            ->with('status', 'Registration successful. You can now sign in.');
     }
 }

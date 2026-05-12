@@ -44,12 +44,12 @@
 
         <div class="mb-3">
             <label class="vms-label">{{ __('Labor Cost') }} <span class="vms-required">*</span></label>
-            <input type="number" step="0.01" min="0" name="labor_cost" class="vms-input" placeholder="$0.00" required>
+            <input type="number" step="0.01" min="0" name="labor_cost" class="vms-input" placeholder="₱0.00" required>
         </div>
 
         <div class="mb-3">
             <label class="vms-label">{{ __('Parts Cost') }}</label>
-            <input type="number" step="0.01" min="0" name="parts_cost" class="vms-input" placeholder="$0.00">
+            <input type="number" step="0.01" min="0" name="parts_cost" class="vms-input" placeholder="₱0.00">
         </div>
 
         <div class="mb-3">

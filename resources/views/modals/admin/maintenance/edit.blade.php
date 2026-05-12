@@ -31,7 +31,7 @@
             <div class="form-group col-md-4">
                 <label>Cost</label>
                 <div class="input-group">
-                    <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+                    <div class="input-group-prepend"><span class="input-group-text">₱</span></div>
                     <input type="number" step="0.01" name="total_cost" class="form-control" value="{{ $record?->totalCost() ?? '' }}" placeholder="0.00">
                 </div>
             </div>

@@ -28,32 +28,32 @@ class RegistrationTest extends TestCase
         ]);
 
         $this->assertGuest();
-        $response->assertRedirect(route('register'));
+        $response->assertRedirect(route('login'));
 
         $this->assertDatabaseHas('users', [
             'email' => 'test@example.com',
             'role' => 'owner',
-            'status' => 'inactive',
+            'status' => 'active',
         ]);
     }
 
-    public function test_mechanic_registration_requires_admin_approval(): void
+    public function test_mechanic_registration_is_active_immediately(): void
     {
         $response = $this->post('/register', [
             'role' => 'mechanic',
-            'name' => 'Pending Mechanic',
-            'email' => 'pending.mechanic@example.com',
+            'name' => 'New Mechanic',
+            'email' => 'new.mechanic@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
         ]);
 
         $this->assertGuest();
-        $response->assertRedirect(route('register'));
+        $response->assertRedirect(route('login'));
 
         $this->assertDatabaseHas('users', [
-            'email' => 'pending.mechanic@example.com',
+            'email' => 'new.mechanic@example.com',
             'role' => 'mechanic',
-            'status' => 'inactive',
+            'status' => 'active',
         ]);
     }
 }

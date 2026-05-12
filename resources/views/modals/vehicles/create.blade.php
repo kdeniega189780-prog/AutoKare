@@ -1,13 +1,27 @@
-@php $isAdmin = Auth::user()->isAdmin(); @endphp
+@php
+    $isAdmin = Auth::user()->isAdmin();
+    $asPage = $asPage ?? false;
+@endphp
 
-<div class="modal-header">
-    <h5 class="modal-title">{{ $isAdmin ? 'Add Vehicle for Customer' : 'Add New Vehicle' }}</h5>
-    <button type="button" class="close" data-modal-close aria-label="Close"><span>&times;</span></button>
-</div>
+@if ($asPage)
+    <div class="vms-page-header mb-3">
+        <div>
+            <h1 class="vms-page-title">{{ $isAdmin ? 'Add Vehicle for Customer' : 'Add New Vehicle' }}</h1>
+        </div>
+        <a href="{{ route('vehicles.index') }}" class="btn btn-default">
+            <i class="fas fa-arrow-left mr-1"></i> Back to vehicles
+        </a>
+    </div>
+@else
+    <div class="modal-header">
+        <h5 class="modal-title">{{ $isAdmin ? 'Add Vehicle for Customer' : 'Add New Vehicle' }}</h5>
+        <button type="button" class="close" data-modal-close data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+    </div>
+@endif
 
 <form method="POST" action="{{ route('vehicles.store') }}" id="vmsAddVehicleForm">
     @csrf
-    <div class="modal-body">
+    <div class="{{ $asPage ? 'p-3' : 'modal-body' }}">
         @if ($isAdmin)
             <div class="card card-outline card-info mb-3">
                 <div class="card-header py-2">
@@ -87,8 +101,12 @@
             </div>
         </div>
     </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-modal-close>Cancel</button>
+    <div class="{{ $asPage ? 'p-3 border-top' : 'modal-footer' }}">
+        @if ($asPage)
+            <a href="{{ route('vehicles.index') }}" class="btn btn-default">Cancel</a>
+        @else
+            <button type="button" class="btn btn-default" data-modal-close data-dismiss="modal">Cancel</button>
+        @endif
         <button type="submit" class="btn btn-primary"><i class="fas fa-plus mr-1"></i> Add Vehicle</button>
     </div>
 </form>

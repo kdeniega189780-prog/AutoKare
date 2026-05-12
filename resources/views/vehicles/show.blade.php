@@ -1,5 +1,5 @@
 <x-app-layout>
     <div class="max-w-2xl mx-auto vms-card">
-        @include('modals.vehicles.show')
+        @include('modals.vehicles.show', ['asPage' => true])
     </div>
 </x-app-layout>

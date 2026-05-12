@@ -54,26 +54,4 @@
             </a>
         </p>
     @endif
-
-    <hr class="my-4">
-
-    <p class="text-center text-muted small mb-2 font-weight-bold">Demo: Select a role to preview</p>
-    <div class="vms-demo-roles">
-        @foreach ([
-            ['label' => 'Admin', 'email' => 'admin@example.com', 'icon' => 'fa-user-shield', 'color' => 'danger'],
-            ['label' => 'Senior Mechanic', 'email' => 'mechanic@example.com', 'icon' => 'fa-wrench', 'color' => 'info'],
-            ['label' => 'Customer', 'email' => 'customer@example.com', 'icon' => 'fa-user', 'color' => 'purple'],
-        ] as $demo)
-            <button type="button"
-                    onclick="document.getElementById('email').value='{{ $demo['email'] }}'; document.getElementById('password').value='password';"
-                    class="vms-demo-role-btn">
-                <span class="vms-demo-role-icon text-{{ $demo['color'] }}"><i class="fas {{ $demo['icon'] }}"></i></span>
-                <span class="vms-demo-role-text">
-                    <span class="vms-demo-role-name">{{ $demo['label'] }}</span>
-                    <span class="vms-demo-role-email">{{ $demo['email'] }}</span>
-                </span>
-            </button>
-        @endforeach
-    </div>
-    <p class="text-center text-muted small mt-3 mb-0">Password for all demo accounts: <code>password</code></p>
 </x-guest-layout>

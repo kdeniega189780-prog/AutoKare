@@ -1,12 +1,27 @@
-<div class="modal-header">
-    <h5 class="modal-title">Edit Vehicle</h5>
-    <button type="button" class="close" data-modal-close aria-label="Close"><span>&times;</span></button>
-</div>
+@php
+    $asPage = $asPage ?? false;
+@endphp
+
+@if ($asPage)
+    <div class="vms-page-header mb-3">
+        <div>
+            <h1 class="vms-page-title">Edit Vehicle</h1>
+        </div>
+        <a href="{{ route('vehicles.index') }}" class="btn btn-default">
+            <i class="fas fa-arrow-left mr-1"></i> Back to vehicles
+        </a>
+    </div>
+@else
+    <div class="modal-header">
+        <h5 class="modal-title">Edit Vehicle</h5>
+        <button type="button" class="close" data-modal-close data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+    </div>
+@endif
 
 <form method="POST" action="{{ route('vehicles.update', $vehicle) }}">
     @csrf
     @method('PUT')
-    <div class="modal-body">
+    <div class="{{ $asPage ? 'p-3' : 'modal-body' }}">
         @if (Auth::user()->isAdmin())
             <div class="form-group">
                 <label>Owner</label>
@@ -51,8 +66,12 @@
             </div>
         </div>
     </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-modal-close>Cancel</button>
+    <div class="{{ $asPage ? 'p-3 border-top' : 'modal-footer' }}">
+        @if ($asPage)
+            <a href="{{ route('vehicles.index') }}" class="btn btn-default">Cancel</a>
+        @else
+            <button type="button" class="btn btn-default" data-modal-close data-dismiss="modal">Cancel</button>
+        @endif
         <button type="submit" class="btn btn-primary"><i class="fas fa-save mr-1"></i> Save Changes</button>
     </div>
 </form>

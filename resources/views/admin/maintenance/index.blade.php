@@ -83,7 +83,7 @@
                             <td>{{ $r->scheduled_at?->format('Y-m-d') }}</td>
                             <td>{{ $r->mechanic?->name ?? '—' }}</td>
                             <td><span class="badge {{ $badge }}">{{ $r->statusLabel() }}</span></td>
-                            <td class="font-weight-bold">${{ number_format($r->serviceRecord?->totalCost() ?? 0, 0) }}</td>
+                            <td class="font-weight-bold"><x-money :value="$r->serviceRecord?->totalCost() ?? 0" :decimals="0" /></td>
                             <td class="text-right text-nowrap">
                                 <button type="button" class="btn btn-sm btn-outline-secondary"
                                         data-modal-url="{{ route('admin.maintenance.editModal', $r) }}">

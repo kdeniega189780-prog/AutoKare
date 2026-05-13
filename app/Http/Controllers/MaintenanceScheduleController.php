@@ -214,7 +214,11 @@ class MaintenanceScheduleController extends Controller
             'priority' => $validated['priority'] ?? $schedule->priority ?? 'normal',
         ]);
 
-        return redirect()->route('schedules.show', $schedule)->with('status', 'Schedule updated.');
+        return match (true) {
+            $request->user()->isAdmin() => redirect()->route('admin.appointments.index')->with('status', 'Schedule updated.'),
+            $request->user()->isOwner() => redirect()->route('customer.appointments')->with('status', 'Schedule updated.'),
+            default => redirect()->route('schedules.show', $schedule)->with('status', 'Schedule updated.'),
+        };
     }
 
     public function destroy(MaintenanceSchedule $schedule): RedirectResponse

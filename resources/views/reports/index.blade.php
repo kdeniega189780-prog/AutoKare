@@ -9,19 +9,6 @@
         </a>
     </div>
 
-    <div class="vms-banner vms-banner-info">
-        <div class="d-flex align-items-start">
-            <i class="fas fa-chart-bar mr-3 mt-1 text-info"></i>
-            <div>
-                <h5>Admin Reports</h5>
-                <p>
-                    View real-time system statistics and business metrics. All data is calculated from current
-                    database records.
-                </p>
-            </div>
-        </div>
-    </div>
-
     <div class="card card-outline card-primary">
         <div class="card-header">
             <h3 class="card-title font-weight-bold">

@@ -1,5 +1,4 @@
 <x-app-layout>
-    @php $u = Auth::user(); @endphp
 
     <div class="vms-page-header">
         <div>
@@ -13,23 +12,6 @@
             </button>
         @endcan
     </div>
-
-    @if ($u->isAdmin())
-        <div class="vms-banner vms-banner-success">
-            <div class="d-flex align-items-start">
-                <i class="fas fa-sync-alt mr-3 mt-1 text-success"></i>
-                <div>
-                    <h5>Walk-in Customer Workflow</h5>
-                    <p>
-                        New walk-in customer? Create their account in <strong>User Management</strong> first
-                        (takes 30 seconds), then return here to add their vehicle. This gives them online
-                        portal access to track service history and book future appointments.
-                        <strong>&rarr; Customer retention benefit!</strong>
-                    </p>
-                </div>
-            </div>
-        </div>
-    @endif
 
     <div class="card card-outline card-primary">
         <div class="card-header">

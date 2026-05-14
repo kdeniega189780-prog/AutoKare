@@ -7,19 +7,6 @@
         <span class="badge badge-info p-2"><i class="fas fa-info-circle mr-1"></i> View &amp; Edit Only - Records created by mechanics</span>
     </div>
 
-    <div class="vms-banner vms-banner-warning">
-        <div class="d-flex align-items-start">
-            <i class="fas fa-exclamation-triangle mr-3 mt-1 text-warning"></i>
-            <div>
-                <h5>Admin Permissions</h5>
-                <p>
-                    You can view and edit existing maintenance records for corrections or billing adjustments.
-                    New records are automatically created when mechanics complete tasks.
-                </p>
-            </div>
-        </div>
-    </div>
-
     <div class="card card-outline card-primary">
         <div class="card-header">
             <form method="GET" action="{{ route('admin.maintenance.index') }}" class="form-inline w-100">

@@ -15,7 +15,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <span class="vms-brand-icon-lg"><i class="fas fa-user-circle"></i></span>
+        <span class="vms-brand-icon-lg"><i class="fas fa-tools"></i></span>
         <div class="mt-2">{{ config('app.name') }}</div>
     </div>
     <div class="card card-outline card-primary">

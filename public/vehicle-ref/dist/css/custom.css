@@ -17,27 +17,27 @@
     --vms-font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
     /* ===========================================================
-     * Color system (deep navy primary + modern neutrals)
+     * Color system (dark green + vibrant accent)
      * =========================================================== */
-    --vms-ink: #050914;
-    --vms-ink-2: #0b1220;
-    --vms-primary: #1e3a8a;
-    --vms-primary-hover: #1d4ed8;
-    --vms-primary-soft: rgba(30, 58, 138, 0.18);
-    --vms-border: rgba(148, 163, 184, 0.20);
-    --vms-surface: rgba(15, 23, 42, 0.72);
-    --vms-surface-2: #050914;
+    --vms-ink: #051008;
+    --vms-ink-2: #0a1a0f;
+    --vms-primary: #5cb85c;
+    --vms-primary-hover: #4cae4c;
+    --vms-primary-soft: rgba(92, 184, 92, 0.22);
+    --vms-border: rgba(92, 184, 92, 0.22);
+    --vms-surface: rgba(5, 16, 8, 0.78);
+    --vms-surface-2: #050d05;
     --vms-text: rgba(255, 255, 255, 0.94);
-    --vms-text-muted: rgba(255, 255, 255, 0.84);
-    --vms-focus: rgba(29, 78, 216, 0.28);
+    --vms-text-muted: rgba(255, 255, 255, 0.78);
+    --vms-focus: rgba(92, 184, 92, 0.38);
 
     /* ===========================================================
-     * Glassy surface system (modern “SaaS” feel)
+     * Glassy surface system
      * =========================================================== */
-    --vms-bg-gradient: radial-gradient(1200px circle at 12% -10%, rgba(29, 78, 216, 0.22) 0%, rgba(30, 58, 138, 0.10) 26%, rgba(30, 58, 138, 0) 55%);
-    --vms-glass-bg: rgba(15, 23, 42, 0.68);
-    --vms-glass-bg-strong: rgba(15, 23, 42, 0.82);
-    --vms-glass-border: rgba(148, 163, 184, 0.18);
+    --vms-bg-gradient: radial-gradient(900px circle at 50% 22%, rgba(92, 184, 92, 0.14) 0%, rgba(5, 20, 12, 0.55) 42%, rgba(5, 13, 5, 0.96) 100%);
+    --vms-glass-bg: rgba(5, 13, 8, 0.72);
+    --vms-glass-bg-strong: rgba(5, 13, 8, 0.88);
+    --vms-glass-border: rgba(92, 184, 92, 0.2);
     --vms-glass-blur: 12px;
 
     --vms-shadow-1: 0 14px 40px rgba(0, 0, 0, 0.35);
@@ -54,7 +54,7 @@ body {
     color: var(--vms-text);
 }
 
-a { color: rgba(147, 197, 253, 0.95); }
+a { color: rgba(190, 242, 200, 0.95); }
 a:hover { color: #ffffff; }
 
 /* Bootstrap helpers: ensure readability in dark palette */
@@ -90,7 +90,7 @@ code, pre,
  * =========================================================== */
 .vms-public-hero {
     min-height: 55vh;
-    background: var(--vms-ink-2);
+    background: linear-gradient(165deg, var(--vms-ink) 0%, var(--vms-ink-2) 55%, #020804 100%);
     color: #fff;
     position: relative;
     overflow: hidden;
@@ -100,7 +100,7 @@ code, pre,
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle, rgba(0,0,0,0.55) 22%, rgba(0,0,0,0.35) 50%, rgba(0,212,255,0) 100%);
+    background: radial-gradient(ellipse 80% 60% at 50% 35%, rgba(92, 184, 92, 0.08) 0%, rgba(0, 0, 0, 0.35) 55%, rgba(0, 0, 0, 0.65) 100%);
     z-index: 1;
 }
 
@@ -110,12 +110,224 @@ code, pre,
     min-height: 55vh;
 }
 
+.vms-public-hero--centered > .container {
+    min-height: calc(100vh - 5.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
+}
+
+.vms-hero-deco {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+.vms-hero-deco-icon {
+    position: absolute;
+    font-size: clamp(6rem, 18vw, 14rem);
+    color: rgba(92, 184, 92, 0.06);
+}
+.vms-hero-deco-icon:nth-child(1) {
+    top: 8%;
+    left: -4%;
+    transform: rotate(-12deg);
+}
+.vms-hero-deco-icon:nth-child(2) {
+    bottom: 6%;
+    right: -3%;
+    transform: rotate(18deg);
+}
+.vms-hero-deco-icon:nth-child(3) {
+    top: 40%;
+    right: 12%;
+    transform: rotate(25deg);
+    font-size: clamp(4rem, 12vw, 9rem);
+}
+
+.vms-hero-card {
+    width: 100%;
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+    background: #050d08;
+    border: 1px solid rgba(92, 184, 92, 0.28);
+    border-radius: 24px;
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.35),
+        0 28px 70px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(92, 184, 92, 0.1);
+    padding: 2.25rem 1.5rem;
+}
+@media (min-width: 576px) {
+    .vms-hero-card {
+        padding: 3rem 2.5rem;
+    }
+}
+
+.vms-public-navbar {
+    background: rgba(5, 13, 5, 0.82) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(92, 184, 92, 0.2);
+    box-shadow: none !important;
+}
+.navbar-dark.vms-public-navbar .navbar-brand,
+.navbar-dark.vms-public-navbar .nav-link {
+    color: rgba(255, 255, 255, 0.92) !important;
+}
+.navbar-dark.vms-public-navbar .nav-link:hover {
+    color: #ffffff !important;
+}
+.vms-public-navbar .navbar-toggler.border-vms-accent {
+    border-color: rgba(92, 184, 92, 0.45) !important;
+}
+.vms-brand-sub {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.2;
+    margin-top: 2px;
+}
+.navbar-brand .vms-brand-icon {
+    flex-shrink: 0;
+}
+
+.btn.vms-btn-outline-accent {
+    color: #fff !important;
+    background: transparent !important;
+    border: 2px solid var(--vms-primary) !important;
+    border-radius: 8px;
+    font-weight: 600;
+}
+.btn.vms-btn-outline-accent:hover,
+.btn.vms-btn-outline-accent:focus {
+    background: rgba(92, 184, 92, 0.14) !important;
+    color: #fff !important;
+    border-color: var(--vms-primary-hover) !important;
+}
+
+.vms-public-footer {
+    background: #020804;
+    border-top: 1px solid rgba(92, 184, 92, 0.18);
+    color: rgba(255, 255, 255, 0.78);
+}
+.vms-public-footer a {
+    color: rgba(255, 255, 255, 0.88);
+}
+.vms-public-footer a:hover {
+    color: #fff;
+}
+.vms-public-footer .vms-public-footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.85);
+    transition: background 0.15s ease, color 0.15s ease;
+}
+.vms-public-footer .vms-public-footer-social a:hover {
+    background: rgba(92, 184, 92, 0.15);
+    color: #fff;
+}
+.vms-public-footer-divider {
+    color: rgba(255, 255, 255, 0.35);
+    padding: 0 0.35rem;
+}
+
 .vms-public-section {
     padding: 3rem 0;
 }
 
 .vms-public-section-light {
     background: var(--vms-surface-2);
+}
+
+.vms-glass-panel {
+    border-radius: 24px;
+    border: 1px solid var(--vms-glass-border);
+    background: var(--vms-glass-bg);
+    backdrop-filter: blur(var(--vms-glass-blur));
+    -webkit-backdrop-filter: blur(var(--vms-glass-blur));
+    box-shadow: var(--vms-shadow-1);
+    padding: 2rem 1.5rem;
+}
+@media (min-width: 768px) {
+    .vms-glass-panel {
+        padding: 2.5rem 2.75rem;
+    }
+}
+
+.vms-feature-card {
+    height: 100%;
+    border-radius: var(--vms-radius-md);
+    border: 1px solid rgba(92, 184, 92, 0.16);
+    background: rgba(5, 13, 8, 0.55);
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+}
+.vms-feature-card-icon {
+    font-size: 2rem;
+    color: var(--vms-primary);
+    margin-bottom: 0.75rem;
+}
+.vms-feature-card-title {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+}
+
+.vms-home-info-card {
+    border-radius: var(--vms-radius-md);
+    border: 1px solid rgba(92, 184, 92, 0.14);
+    background: var(--vms-glass-bg-strong);
+    backdrop-filter: blur(var(--vms-glass-blur));
+    -webkit-backdrop-filter: blur(var(--vms-glass-blur));
+    padding: 1.5rem 1.25rem;
+    height: 100%;
+    box-shadow: var(--vms-shadow-1);
+}
+.vms-home-info-card h2 {
+    color: #fff;
+}
+.vms-home-bullet {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(92, 184, 92, 0.1);
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.95rem;
+}
+.vms-home-bullet:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+.vms-home-bullet::before {
+    content: "";
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    margin-top: 0.4rem;
+    border-radius: 999px;
+    background: var(--vms-primary);
+    box-shadow: 0 0 0 3px rgba(92, 184, 92, 0.2);
+}
+
+.vms-about-page {
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+}
+
+.vms-public-main {
+    padding-top: 5.25rem;
 }
 
 /* Guest auth pages (Login/Register) */
@@ -183,7 +395,7 @@ code, pre,
     padding: 14px 16px;
     border-radius: var(--vms-radius-md);
     background: var(--vms-glass-bg-strong);
-    border: 1px solid rgba(148, 163, 184, 0.14);
+    border: 1px solid rgba(92, 184, 92, 0.12);
     box-shadow: var(--vms-shadow-1);
 }
 .vms-icon-tile-left {
@@ -241,8 +453,8 @@ code, pre,
     box-shadow: var(--vms-shadow-1);
 }
 .card .card-header {
-    background: rgba(15, 23, 42, 0.55);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+    background: rgba(5, 20, 10, 0.55);
+    border-bottom: 1px solid rgba(92, 184, 92, 0.12);
 }
 
 /* Custom VMS cards */
@@ -633,10 +845,15 @@ label.star:before {
     width: 32px;
     height: 32px;
     border-radius: 6px;
-    background: rgba(15, 23, 42, 0.80) !important;
-    color: #fff !important;
+    background: rgba(5, 20, 12, 0.75) !important;
+    border: 1px solid rgba(92, 184, 92, 0.22);
+    color: var(--vms-primary) !important;
 }
-.vms-brand-icon i { color: #fff !important; }
+.vms-brand-icon i { color: var(--vms-primary) !important; }
+.vms-public-navbar .vms-brand-icon {
+    background: rgba(92, 184, 92, 0.12) !important;
+    border-color: rgba(92, 184, 92, 0.35);
+}
 .vms-brand-icon-lg {
     display: inline-flex;
     align-items: center;
@@ -644,13 +861,20 @@ label.star:before {
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background: rgba(15, 23, 42, 0.80);
-    color: #fff;
+    background: rgba(5, 13, 8, 0.9);
+    border: 1px solid rgba(92, 184, 92, 0.25);
+    color: var(--vms-primary);
     font-size: 32px;
     margin: 0 auto;
 }
+.vms-brand-icon-lg i {
+    color: var(--vms-primary) !important;
+}
 .vms-public-hero .vms-brand-icon-lg {
-    box-shadow: 0 18px 60px rgba(29, 78, 216, 0.35);
+    width: 128px;
+    height: 128px;
+    font-size: 3.5rem;
+    box-shadow: 0 18px 50px rgba(92, 184, 92, 0.28);
 }
 .vms-brand-text {
     font-weight: 700;
@@ -689,6 +913,7 @@ label.star:before {
 }
 .vms-sidebar-brand .vms-brand-text { color: rgba(255, 255, 255, 0.92) !important; }
 .vms-sidebar-brand .vms-brand-icon { background: rgba(0, 0, 0, 0.18) !important; }
+.vms-sidebar-brand .vms-brand-icon i { color: #fff !important; }
 .vms-sidebar-brand .vms-brand-text {
     font-size: 13px;
     white-space: nowrap;
@@ -714,9 +939,9 @@ label.star:before {
     color: rgba(226, 232, 240, 0.70);
 }
 .vms-sidebar-info-card-blue {
-    border-color: #bfdbfe;
+    border-color: rgba(167, 243, 208, 0.45);
     background: var(--vms-primary-soft);
-    color: var(--vms-primary);
+    color: rgba(255, 255, 255, 0.92);
 }
 .vms-sidebar-info-card .vms-sidebar-info-title {
     font-weight: 700;

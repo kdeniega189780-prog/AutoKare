@@ -10,21 +10,6 @@
         </button>
     </div>
 
-    <div class="vms-banner vms-banner-purple">
-        <div class="d-flex align-items-start">
-            <i class="fas fa-info-circle mr-3 mt-1 text-purple"></i>
-            <div>
-                <h5>Hybrid Service Model</h5>
-                <p>
-                    <strong>Two ways to book:</strong>
-                    Admin can book appointments for walk-in/phone customers (you're doing this now),
-                    OR customers with online accounts can book themselves 24/7 through their portal.
-                    <strong>&rarr; Reduces phone calls and improves efficiency!</strong>
-                </p>
-            </div>
-        </div>
-    </div>
-
     <div class="card card-outline card-primary">
         <div class="card-header">
             <form method="GET" action="{{ route('admin.appointments.index') }}" class="form-inline w-100">

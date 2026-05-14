@@ -175,18 +175,7 @@
                 </ul>
             </nav>
 
-            @if ($u->isAdmin())
-                <div class="vms-sidebar-info-card">
-                    <div class="vms-sidebar-info-title"><i class="fas fa-shield-alt mr-1 text-danger"></i> Admin Privileges</div>
-                    <ul class="vms-sidebar-info-list">
-                        <li><i class="fas fa-check text-success"></i> Full System Access</li>
-                        <li><i class="fas fa-check text-success"></i> Add vehicles for customers</li>
-                        <li><i class="fas fa-check text-success"></i> Book appointments</li>
-                        <li><i class="fas fa-check text-success"></i> User Management</li>
-                        <li><i class="fas fa-check text-success"></i> View/Edit all records</li>
-                    </ul>
-                </div>
-            @elseif ($u->isMechanic())
+            @if ($u->isMechanic())
                 <div class="vms-sidebar-info-card">
                     <div class="vms-sidebar-info-title"><i class="fas fa-clipboard-list mr-1 text-info"></i> Today's Summary</div>
                     <ul class="vms-sidebar-info-list">

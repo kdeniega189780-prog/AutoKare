@@ -47,17 +47,6 @@
                             <p>{{ __('User Management') }}</p>
                         </a>
                     </li>
-
-                    <li class="nav-header mt-2">{{ __('Admin Privileges') }}</li>
-                    <li class="nav-item px-2">
-                        <div class="p-2 small text-muted" style="border:1px solid rgba(255,255,255,.12); border-radius:6px;">
-                            <div class="mb-1">✓ {{ __('Full System Access') }}</div>
-                            <div class="mb-1">✓ {{ __('Add vehicles for customers') }}</div>
-                            <div class="mb-1">✓ {{ __('Book appointments') }}</div>
-                            <div class="mb-1">✓ {{ __('User Management') }}</div>
-                            <div>✓ {{ __('View/Edit all records') }}</div>
-                        </div>
-                    </li>
                 @elseif ($u->isMechanic())
                     <li class="nav-item">
                         <a href="{{ route('mechanic.tasks') }}" class="nav-link {{ request()->routeIs('mechanic.tasks') ? 'active' : '' }}">

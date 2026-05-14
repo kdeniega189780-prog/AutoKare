@@ -3,11 +3,6 @@
     <h2 class="font-weight-bold text-dark mt-3 mb-1" style="font-size:18px;">{{ __('Team Performance Overview') }}</h2>
     <div class="text-muted mb-3" style="font-size:13px;">{{ __("Monitor your team's productivity and task completion") }}</div>
 
-    <div class="vms-banner-info-blue mb-4">
-        <strong>{{ __('Senior Mechanic Reports:') }}</strong>
-        {{ __('View real-time team performance metrics and task statistics. Monitor workload distribution and identify areas for improvement.') }}
-    </div>
-
     <div class="vms-card vms-card-pad mb-4">
         <div class="font-weight-bold text-dark mb-3">
             <i class="far fa-clock mr-1"></i> {{ __('This Week Summary') }}

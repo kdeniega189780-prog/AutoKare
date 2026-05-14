@@ -10,20 +10,6 @@
         </button>
     </div>
 
-    <div class="vms-banner vms-banner-info">
-        <div class="d-flex align-items-start">
-            <i class="fas fa-info-circle mr-3 mt-1 text-info"></i>
-            <div>
-                <h5>Why Create Customer Accounts?</h5>
-                <p>
-                    Every customer gets an <strong>online portal account</strong> to track service history and book future appointments.
-                    For <strong>walk-in customers</strong>, create their account here first (takes 30 seconds), then add their vehicle and book appointments.
-                    This gives them immediate online access and improves customer retention.
-                </p>
-            </div>
-        </div>
-    </div>
-
     <div class="row">
         <div class="col-md-4">
             <div class="vms-role-tile">
@@ -146,41 +132,5 @@
         @if ($users->hasPages())
             <div class="card-footer">{{ $users->links() }}</div>
         @endif
-    </div>
-
-    <div class="row mt-4">
-        <div class="col-md-4">
-            <div class="vms-info-card">
-                <div class="vms-info-card-title text-danger"><i class="fas fa-user-shield mr-1"></i> Admin Role</div>
-                <ul>
-                    <li>Full system access</li>
-                    <li>User management</li>
-                    <li>System configuration</li>
-                    <li>All reports and analytics</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="vms-info-card">
-                <div class="vms-info-card-title text-success"><i class="fas fa-wrench mr-1"></i> Mechanic Role</div>
-                <ul>
-                    <li>View assigned tasks</li>
-                    <li>Update task status</li>
-                    <li>Add work notes and reports</li>
-                    <li>View task history</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="vms-info-card">
-                <div class="vms-info-card-title text-purple"><i class="fas fa-user mr-1"></i> Customer Role</div>
-                <ul>
-                    <li>View own vehicles</li>
-                    <li>Book appointments</li>
-                    <li>View service history</li>
-                    <li>Request quotes</li>
-                </ul>
-            </div>
-        </div>
     </div>
 </x-app-layout>

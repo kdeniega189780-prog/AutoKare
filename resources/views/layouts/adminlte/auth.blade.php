@@ -17,7 +17,11 @@
             </div>
 
             @if (session('status'))
-                <div class="alert alert-info">{{ session('status') }}</div>
+                @if (session('status') === 'verification-link-sent')
+                    <div class="alert alert-success mb-3">{{ __('A new verification link has been sent to the email address you provided during registration.') }}</div>
+                @else
+                    <div class="alert alert-info mb-3">{{ session('status') }}</div>
+                @endif
             @endif
 
             {{ $slot }}

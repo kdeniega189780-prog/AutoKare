@@ -1,10 +1,4 @@
 <x-guest-layout>
-    @if (session('status'))
-        <div class="alert alert-info">
-            {{ session('status') }}
-        </div>
-    @endif
-
     <form method="POST" action="{{ route('register') }}">
         @csrf
 

@@ -1,10 +1,4 @@
 <x-guest-layout>
-    @if (session('status'))
-        <div class="alert alert-info">
-            {{ session('status') }}
-        </div>
-    @endif
-
     <p class="login-box-msg">Sign in to your account</p>
 
     <form method="POST" action="{{ route('login') }}">

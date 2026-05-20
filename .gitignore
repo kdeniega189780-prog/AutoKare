@@ -3,6 +3,7 @@
 .env
 .env.backup
 .env.production
+.env.railway
 .phpactor.json
 .phpunit.result.cache
 /.fleet
@@ -24,3 +25,4 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
+.railway-mysql-vars.json

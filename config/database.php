@@ -61,6 +61,12 @@ return [
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 (PHP_VERSION_ID >= 80500 ? Mysql::ATTR_SSL_CA : PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
+                // MySQL 8 caching_sha2_password over non-TLS (e.g. Railway internal): allow RSA key exchange.
+                (PHP_VERSION_ID >= 80500 ? Mysql::ATTR_GET_SERVER_PUBLIC_KEY : PDO::MYSQL_ATTR_GET_SERVER_PUBLIC_KEY) => filter_var(
+                    env('MYSQL_GET_SERVER_PUBLIC_KEY', true),
+                    FILTER_VALIDATE_BOOLEAN,
+                    FILTER_NULL_ON_FAILURE
+                ) ?? true,
             ]) : [],
         ],
 
@@ -81,6 +87,11 @@ return [
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 (PHP_VERSION_ID >= 80500 ? Mysql::ATTR_SSL_CA : PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
+                (PHP_VERSION_ID >= 80500 ? Mysql::ATTR_GET_SERVER_PUBLIC_KEY : PDO::MYSQL_ATTR_GET_SERVER_PUBLIC_KEY) => filter_var(
+                    env('MYSQL_GET_SERVER_PUBLIC_KEY', true),
+                    FILTER_VALIDATE_BOOLEAN,
+                    FILTER_NULL_ON_FAILURE
+                ) ?? true,
             ]) : [],
         ],
 

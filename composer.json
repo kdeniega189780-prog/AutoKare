@@ -10,7 +10,9 @@
         "ext-mbstring": "*",
         "ext-openssl": "*",
         "ext-pdo": "*",
+        "ext-pdo_mysql": "*",
         "ext-tokenizer": "*",
+        "ext-zip": "*",
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0"
     },

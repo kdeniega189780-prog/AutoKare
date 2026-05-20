@@ -3,7 +3,7 @@
 
 [build]
 builder = "RAILPACK"
-buildCommand = "npm ci && npm run build"
+buildCommand = "sh -c \"rm -rf node_modules && npm ci --cache /tmp/npm-cache --no-audit --no-fund && npm run build\""
 
 [deploy]
 startCommand = "chmod +x ./railway/start.sh && sh ./railway/start.sh"

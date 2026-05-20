@@ -1,0 +1,14 @@
+# Railway deployment config for Laravel 13
+# https://docs.railway.com/guides/laravel
+
+[build]
+builder = "NIXPACKS"
+buildCommand = "composer install --no-dev --optimize-autoloader && npm ci && npm run build"
+
+[deploy]
+startCommand = "chmod +x ./railway/start.sh && sh ./railway/start.sh"
+preDeployCommand = "chmod +x ./railway/init-app.sh && sh ./railway/init-app.sh"
+healthcheckPath = "/up"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10

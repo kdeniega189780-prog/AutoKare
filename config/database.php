@@ -3,40 +3,42 @@
 use Illuminate\Support\Str;
 use Pdo\Mysql;
 
-/**
- * PDO MySQL driver options safe across PHP 8.4 (Railway) and 8.5+.
- */
-function mysql_pdo_options(): array
-{
-    if (! extension_loaded('pdo_mysql')) {
-        return [];
-    }
-
-    $options = [];
-
-    if (($sslCa = env('MYSQL_ATTR_SSL_CA')) !== null) {
-        if (PHP_VERSION_ID >= 80500) {
-            $options[Mysql::ATTR_SSL_CA] = $sslCa;
-        } elseif (defined('PDO::MYSQL_ATTR_SSL_CA')) {
-            $options[PDO::MYSQL_ATTR_SSL_CA] = $sslCa;
+if (! function_exists('mysql_pdo_options')) {
+    /**
+     * PDO MySQL driver options safe across PHP 8.4 (Railway) and 8.5+.
+     */
+    function mysql_pdo_options(): array
+    {
+        if (! extension_loaded('pdo_mysql')) {
+            return [];
         }
-    }
 
-    $usePublicKey = filter_var(
-        env('MYSQL_GET_SERVER_PUBLIC_KEY', true),
-        FILTER_VALIDATE_BOOLEAN,
-        FILTER_NULL_ON_FAILURE
-    ) ?? true;
+        $options = [];
 
-    if ($usePublicKey) {
-        if (PHP_VERSION_ID >= 80500) {
-            $options[Mysql::ATTR_GET_SERVER_PUBLIC_KEY] = true;
-        } elseif (defined('PDO::MYSQL_ATTR_GET_SERVER_PUBLIC_KEY')) {
-            $options[PDO::MYSQL_ATTR_GET_SERVER_PUBLIC_KEY] = true;
+        if (($sslCa = env('MYSQL_ATTR_SSL_CA')) !== null) {
+            if (PHP_VERSION_ID >= 80500) {
+                $options[Mysql::ATTR_SSL_CA] = $sslCa;
+            } elseif (defined('PDO::MYSQL_ATTR_SSL_CA')) {
+                $options[PDO::MYSQL_ATTR_SSL_CA] = $sslCa;
+            }
         }
-    }
 
-    return $options;
+        $usePublicKey = filter_var(
+            env('MYSQL_GET_SERVER_PUBLIC_KEY', true),
+            FILTER_VALIDATE_BOOLEAN,
+            FILTER_NULL_ON_FAILURE
+        ) ?? true;
+
+        if ($usePublicKey) {
+            if (PHP_VERSION_ID >= 80500) {
+                $options[Mysql::ATTR_GET_SERVER_PUBLIC_KEY] = true;
+            } elseif (defined('PDO::MYSQL_ATTR_GET_SERVER_PUBLIC_KEY')) {
+                $options[PDO::MYSQL_ATTR_GET_SERVER_PUBLIC_KEY] = true;
+            }
+        }
+
+        return $options;
+    }
 }
 
 return [

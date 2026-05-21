@@ -3,7 +3,8 @@
 
 [build]
 builder = "RAILPACK"
-buildCommand = "sh -c \"rm -rf node_modules && npm ci --cache /tmp/npm-cache --no-audit --no-fund && npm run build\""
+# Railpack already installs node_modules; only build assets (caches in /tmp via .npmrc + vite.config.js).
+buildCommand = "npm run build"
 
 [deploy]
 startCommand = "chmod +x ./railway/start.sh && sh ./railway/start.sh"

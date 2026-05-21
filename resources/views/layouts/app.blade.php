@@ -7,13 +7,13 @@
     <title>{{ config('app.name') }}</title>
 
     @include('layouts.partials.vms-fonts')
-    <link rel="stylesheet" href="{{ asset('vehicle-ref/plugins/fontawesome-free/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vehicle-ref/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vehicle-ref/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vehicle-ref/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vehicle-ref/plugins/toastr/toastr.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vehicle-ref/dist/css/adminlte.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vehicle-ref/dist/css/custom.css') }}">
+    <link rel="stylesheet" href="{{ $refAsset }}/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{ $refAsset }}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="{{ $refAsset }}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="{{ $refAsset }}/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <link rel="stylesheet" href="{{ $refAsset }}/plugins/toastr/toastr.min.css">
+    <link rel="stylesheet" href="{{ $refAsset }}/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="{{ $refAsset }}/dist/css/custom.css">
 </head>
 @php
     use App\Models\MaintenanceSchedule;
@@ -227,14 +227,14 @@
     </div>
 </div>
 
-<script src="{{ asset('vehicle-ref/plugins/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('vehicle-ref/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('vehicle-ref/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-<script src="{{ asset('vehicle-ref/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-<script src="{{ asset('vehicle-ref/plugins/toastr/toastr.min.js') }}"></script>
-<script src="{{ asset('vehicle-ref/dist/js/adminlte.min.js') }}"></script>
-<script src="{{ asset('js/modal-loader.js') }}"></script>
-<script src="{{ asset('js/search-suggest.js') }}"></script>
+<script src="{{ $refAsset }}/plugins/jquery/jquery.min.js"></script>
+<script src="{{ $refAsset }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{ $refAsset }}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="{{ $refAsset }}/plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="{{ $refAsset }}/plugins/toastr/toastr.min.js"></script>
+<script src="{{ $refAsset }}/dist/js/adminlte.min.js"></script>
+<script src="/js/modal-loader.js"></script>
+<script src="/js/search-suggest.js"></script>
 @stack('scripts')
 </body>
 </html>
